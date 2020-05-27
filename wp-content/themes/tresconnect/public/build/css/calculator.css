@@ -1,0 +1,559 @@
+.widget_notus-kalkulatory {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+    margin: auto;
+    color: #767676;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 1px;
+}
+
+.widget_notus-kalkulatory  a {
+    color: #3c8dd1;
+}
+
+.widget_notus-kalkulatory  a:hover {
+    color: #196db5;
+}
+
+.widget_notus-kalkulatory form {
+    position: relative;
+}
+
+.widget_notus-kalkulatory .tytul {
+    color: #767676!important;
+    margin: 0;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.widget_notus-kalkulatory .podtytul {
+    display: none;
+    margin: 10px 0 10px 0;
+}
+
+.widget_notus-kalkulatory div.opis {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 0 4px 0;
+    z-index: 1;
+}
+
+.widget_notus-kalkulatory div.input {
+    display: block;
+    position: relative;
+    color: #373737;
+    background: #ffffff;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-radius: 4px;
+    margin: 0 auto 0 auto;
+}
+
+.widget_notus-kalkulatory div.input.kwota_kredytu:after, .widget_notus-kalkulatory div.input.dochod_netto:after, .widget_notus-kalkulatory div.input.miesieczne_zobowiazania_raty:after, .widget_notus-kalkulatory div.input.limit_ROR_CC:after, .widget_notus-kalkulatory div.input.inne_wydatki:after, .widget_notus-kalkulatory div.input.kredyt_hipoteczny:after, .widget_notus-kalkulatory div.input.kredyty_i_pozyczki:after, .widget_notus-kalkulatory div.input.karty_kredytowe:after, .widget_notus-kalkulatory div.input.karty_kredytowe:after, .widget_notus-kalkulatory div.input.dodatkowe_srodki:after {
+    content: "zł";
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 48px;
+    font-size: 14px
+}
+
+.widget_notus-kalkulatory div.input.okres_kredytowania:after {
+    content: "lat";
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 48px;
+    font-size: 14px
+}
+
+.widget_notus-kalkulatory div.input.ilosc_osob:after {
+    content: "os.";
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 48px;
+    font-size: 14px
+}
+
+div.input.oprocentowanie_kredytu:after {
+    content: "%";
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 46px;
+    font-size: 18px
+}
+
+.widget_notus-kalkulatory div.input.telefon {
+    text-align: left;
+    padding: 0;
+    margin: 26px auto 0 auto;
+}
+
+.widget_notus-kalkulatory div.input.telefon input {
+    padding: 8px 8px 8px 8px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.widget_notus-kalkulatory input {
+    display: block;
+    color: #373737;
+    background: #ffffff;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 8px;
+    border: 0 none;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.widget_notus-kalkulatory input:invalid {
+    box-shadow: none;
+}
+
+.widget_notus-kalkulatory input[type="number"] {
+    padding: 8px 70px 8px 8px;
+}
+
+.widget_notus-kalkulatory input[type=number]::-webkit-inner-spin-button, .widget_notus-kalkulatory input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.widget_notus-kalkulatory input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.widget_notus-kalkulatory .quantity-wnk-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 48px;
+}
+
+.widget_notus-kalkulatory .quantity-wnk-button {
+    position: relative;
+    cursor: pointer;
+    border-left: 1px solid #eeeeee;
+    width: 40px;
+    text-align: center;
+    color: #333;
+    font-size: 12px;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background: #ffffff;
+}
+
+.widget_notus-kalkulatory .quantity-wnk-button:hover {
+    background: #f8f8f8;
+}
+
+.widget_notus-kalkulatory .quantity-wnk-button.quantity-wnk-up {
+    position: absolute;
+    height: 50%;
+    top: 0;
+    line-height: 24px;
+    border-bottom: 1px solid #eeeeee;
+    border-radius: 0 4px 0 0;
+    z-index: 2;
+}
+
+.widget_notus-kalkulatory .quantity-wnk-button.quantity-wnk-down {
+    position: absolute;
+    bottom: 0px;
+    line-height: 20px;
+    height: 50%;
+    border-radius: 0 0 4px 0;
+    z-index: 1;
+}
+
+.widget_notus-kalkulatory div.selectlista {
+    display: block;
+    position: relative;
+    color: #373737;
+    background: #ffffff;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-radius: 4px;
+    margin: 0 auto 0 auto;
+}
+
+.widget_notus-kalkulatory div.selectlista.icon select {
+    padding:  8px;
+}
+
+.widget_notus-kalkulatory div.selectlista:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: block;
+    width: 12px;
+    height: 10px;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-image: url(img/strzalka.png);
+    background-position: center;
+    z-index: 1;
+}
+
+.widget_notus-kalkulatory select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: transparent;
+    color: #373737;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    height: 48px;
+    border: 0 none;
+    padding: 8px 8px 8px 52px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.widget_notus-kalkulatory select:disabled {
+    cursor: not-allowed;
+    color: rgba(55,55,55,0.6);
+}
+
+.widget_notus-kalkulatory select optgroup, .widget_notus-kalkulatory select option {
+    padding: 6px;
+}
+
+.widget_notus-kalkulatory select option:disabled {
+    display: none;
+}
+
+.widget_notus-kalkulatory .button {
+    background: #ffffff;
+    border: 1px solid #767676;
+    border-radius: 6px;
+    color: #767676;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    width: 100%;
+    height: 48px;
+    line-height: 38px;
+    padding: 0;
+    text-align: center;
+    margin-top: 26px;
+}
+
+.widget_notus-kalkulatory .button:hover, .widget_notus-kalkulatory .button:focus {
+    background: #767676;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.widget_notus-kalkulatory .button:disabled {
+    background: rgba(200, 200, 200, 0.2);
+    border-color: rgba(200, 200, 200, 0.2);
+    color: rgba(200, 200, 200, 0.6);
+    cursor: not-allowed;
+}
+
+.widget_notus-kalkulatory label.error {
+    display: block;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ffffff;
+    background: #ff0000;
+    padding: 5px;
+    box-sizing: border-box;
+    font-weight: 400;
+    border-radius: 4px;
+    z-index: 3;
+}
+
+.widget_notus-kalkulatory label.error:after, .widget_notus-kalkulatory label.error:before {
+    top: 100%;
+    left: 20px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.widget_notus-kalkulatory label.error:after {
+    border-color: rgba(255, 0, 0, 0);
+    border-top-color: #ff0000;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.widget_notus-kalkulatory label.error:before {
+    border-color: rgba(255, 0, 0, 0);
+    border-top-color: #ff0000;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.widget_notus-kalkulatory .calc-info {
+    background: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    padding: 24px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.widget_notus-kalkulatory .calc-loading, .widget_notus-kalkulatory .calc-error {
+    position: absolute;
+    box-sizing: border-box;
+    top: 30%;
+    left: 50%;
+    margin-left: -120px;
+    width: 240px;
+    padding: 24px 14px 24px 14px;
+    margin-top: 0;
+    text-align: center;
+    z-index: 3;
+}
+
+.widget_notus-kalkulatory .calc-error {
+    cursor: pointer;
+}
+
+.widget_notus-kalkulatory .calc-error:after {
+    content: "x";
+    display: block;
+    background: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.widget_notus-kalkulatory .calc-success {
+    background: #f7f7f7;
+    color: #767676;
+    border-color: #767676;
+    margin-top: 26px;
+}
+
+.widget_notus-kalkulatory .calc-infos {
+    background: #f7f7f7;
+    border: 1px solid #767676;
+    border-radius: 4px;
+    padding: 10px 24px 10px 24px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #767676;
+}
+
+.widget_notus-kalkulatory .calc-infos .calc-info {
+    background: #f7f7f7;
+    border: 0;
+    border-radius: 0;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 0;
+}
+
+.widget_notus-kalkulatory .calc-wynik {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.widget_notus-kalkulatory .calc-wyliczenia {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.widget_notus-kalkulatory .calc-wynik strong, .widget_notus-kalkulatory .calc-wyliczenia strong {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.widget_notus-kalkulatory .tabela {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.widget_notus-kalkulatory .komorka50 {
+    display: table-cell;
+    width: 50%;
+    box-sizing: border-box;
+    vertical-align: bottom;
+}
+
+.widget_notus-kalkulatory .komorka50:first-child {
+    padding: 0 5px 0 0;
+}
+
+.widget_notus-kalkulatory .komorka50:last-child {
+    padding: 0 0 0 5px;
+}
+
+.widget_notus-kalkulatory .komorka50:last-child button {
+    float: right;
+}
+
+.widget_notus-kalkulatory .legal {
+    display: none;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.widget_notus-kalkulatory .legal p {
+    position: relative;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.widget_notus-kalkulatory .infoprawnebox span {
+    display: inline;
+    color: #98012e;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.widget_notus-kalkulatory .infoprawnebox span:hover {
+    color: #860028;
+}
+
+.widget_notus-kalkulatory .infoprawnebox {
+    display: block;
+    position: relative;
+}
+
+.widget_notus-kalkulatory .oswiadczenie {
+    position: absolute;
+    bottom: 28px;
+    left: 5%;
+    background: #ffffff;
+    width: 90%;
+    padding: 2%;
+    box-sizing: border-box;
+    font-size: 11px;
+    line-height: 15px;
+    color: #767676;
+    text-align: justify;
+    border: 1px solid #767676;
+    overflow: initial;
+    z-index: 999999;
+}
+
+.widget_notus-kalkulatory .oswiadczenie:after, .widget_notus-kalkulatory .oswiadczenie:before {
+    top: 100%;
+    left: 30px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.widget_notus-kalkulatory .oswiadczenie:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #ffffff;
+    border-width: 14px;
+    margin-left: -14px;
+}
+
+.widget_notus-kalkulatory .oswiadczenie:before {
+    border-color: rgba(118, 118, 118, 0);
+    border-top-color: #767676;
+    border-width: 15px;
+    margin-left: -15px;
+}
+
+.widget_notus-kalkulatory .oswiadczenie .kontener {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.widget_notus-kalkulatory .oswiadczenie div {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.widget_notus-kalkulatory .oswiadczenie .zamknij {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    line-height: 18px;
+    cursor: pointer;
+    color: #767676;
+    background: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border: 1px solid #767676;
+    border-radius: 50%;
+}
+
+.widget_notus-kalkulatory .oswiadczenie .zamknij:hover {
+    color: #ffffff;
+    background: #767676;
+}
+
+.widget_notus-kalkulatory .oswiadczenie div.naglowek {
+    color: #767676;
+    margin: 0 34px 10px 0;
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.widget_notus-kalkulatory .oswiadczenie ul {
+    padding-left: 20px;
+    margin: 0 0 10px 0;
+}

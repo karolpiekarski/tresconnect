@@ -1,0 +1,60 @@
+/* ---
+  Sizes:
+    • button--small
+
+  Styles:
+    • button--border
+    • button--fill
+
+  Colors:
+    • button--green
+    • button--orange
+--- */
+
+.button {
+
+  &__primary {
+    font-family: $f-Prompt;
+    font-size: 1.4rem;
+    font-weight: $fw-Regular;
+    line-height: 1.5;
+    letter-spacing: 1.05px;
+    text-align: center;
+    color: $c-white;
+    padding: 13px 35px;
+    display: inline-block;
+    background-color: $c-green-02;
+    transition: background-color $tr ease-in-out;
+
+    &:hover {
+      background-color: $c-blue-01;
+    }
+  }
+
+  &__link {
+    font-family: $f-Prompt;
+    font-size: 1.4rem;
+    font-weight: $fw-Regular;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 1.05px;
+    text-align: center;
+    color: $c-black;
+    transition: color $tr ease-in-out;
+
+    &.active,
+    &:hover {
+      color: $c-green-02;
+    }
+  }
+
+  &__social {
+    width: 32px;
+    height: 32px;
+    background-color: $c-green-01;
+
+    display: flex;
+    justify-content: center;
+  }
+}

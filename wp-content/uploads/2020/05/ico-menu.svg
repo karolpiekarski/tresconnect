@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__ico-menu" width="34" height="28" viewBox="0 0 34 28">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#163767}
+        </style>
+    </defs>
+    <path id="prefix__Rectangle_29" d="M0 0H34V2H0z" class="prefix__cls-1" data-name="Rectangle 29"/>
+    <path id="prefix__Rectangle_30" d="M0 0H34V2H0z" class="prefix__cls-1" data-name="Rectangle 30" transform="translate(0 13)"/>
+    <path id="prefix__Rectangle_31" d="M0 0H34V2H0z" class="prefix__cls-1" data-name="Rectangle 31" transform="translate(0 26)"/>
+</svg>

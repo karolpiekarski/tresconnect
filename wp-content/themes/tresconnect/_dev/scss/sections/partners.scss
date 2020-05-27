@@ -1,0 +1,62 @@
+.partners {
+  padding: 40px 0;
+
+  &__title {
+
+    hr {
+      width: 46px;
+      height: 5px;
+      background-color: $c-green-02;
+      margin-top: 35px;
+      margin-bottom: 45px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+
+    @include rwd('large-phone') {
+      margin: -8px 0;
+    }
+  }
+
+  &__itemWrapper {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 15px;
+    height: 168px;
+
+    @include rwd('large-tablet') {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    @include rwd('large-phone') {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 8px 0;
+    }
+  }
+
+  &__item {
+    border: 1px solid $c-gray-03;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+
+    a {
+      @include rwd('large-phone') {
+        width: 100%;
+      }
+    }
+  }
+}

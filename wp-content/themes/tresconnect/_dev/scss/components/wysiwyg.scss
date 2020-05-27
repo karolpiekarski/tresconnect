@@ -1,0 +1,55 @@
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $f-Prompt;
+  font-weight: $fw-Medium;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  color: $c-blue-01;
+
+}
+
+h1 {
+  font-size: 5.6rem;
+}
+
+h2 {
+  font-size: 3.6rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p, small {
+  font-family: $f-Work_Sans;
+  font-weight: $fw-Regular;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+p {
+  font-size: 1.5rem;
+  color: $c-black-02;
+}
+
+small {
+  font-size: 1.1rem;
+  color: $c-black;
+}

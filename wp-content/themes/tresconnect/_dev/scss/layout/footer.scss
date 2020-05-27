@@ -1,0 +1,138 @@
+.footer {
+
+  &--desktopHidden {
+    display: none;
+
+    @include rwd('large-tablet') {
+      display: block;
+    }
+  }
+
+  &--mobileHidden {
+    display: block;
+
+    @include rwd('large-tablet') {
+      display: none;
+    }
+  }
+
+  &__top {
+    padding: 80px 0;
+    background-color: $c-blue-01;
+
+  }
+
+  &__topBoxWrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__topBox {
+
+    &--30 {
+      flex: 0 0 30%;
+      max-width: 30%;
+
+      @include rwd('large-tablet') {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      @include rwd('large-tablet') {
+        padding-top: 20px;
+      }
+    }
+
+    &--40 {
+      flex: 0 0 40%;
+      max-width: 40%;
+
+      @include rwd('large-tablet') {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    &--vcenter {
+      display: flex;
+
+      @include rwd('large-tablet') {
+        justify-content: center;
+        padding-bottom: 60px;
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    h4 {
+      color: $c-white;
+      padding-bottom: 28px;
+
+      @include rwd('large-tablet') {
+        text-align: center;
+      }
+    }
+
+    p {
+      color: $c-white;
+      line-height: 1.64;
+
+      @include rwd('large-tablet') {
+        text-align: center;
+      }
+    }
+
+    a {
+      opacity: 1;
+      border-bottom: 1px solid transparent;
+      transition: opacity .3s ease-in-out, border-bottom .3s ease-in-out;
+
+      &:hover {
+        opacity: .8;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+
+  &__bottom {
+    background-color: $c-blue-02;
+    padding: 37px 0 42px 0;
+  }
+
+  &__bottomBoxWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__bottomSocials {
+
+    a {
+      margin-left: auto;
+
+      @include rwd('large-tablet') {
+        margin-left: unset;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__bottomBox {
+    flex: 0 0 50%;
+    max-width: 50%;
+
+    @include rwd('large-tablet') {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    p {
+      color: $c-white;
+
+      @include rwd('large-tablet') {
+        text-align: center;
+      }
+    }
+  }
+}

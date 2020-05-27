@@ -1,0 +1,38 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  line-height: 1;
+}
+
+body {
+  font-family: $f-Work_Sans;
+  font-weight: $fw-Regular;
+  color: $c-black-02;
+  font-size: 1.5rem;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+
+}
+
+.dark {
+
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background-color: $c-black;
+  }
+}
+
+.over-hidden {
+  overflow: hidden;
+}

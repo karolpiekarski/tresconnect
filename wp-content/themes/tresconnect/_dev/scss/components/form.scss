@@ -1,0 +1,16 @@
+.form {
+
+  &__inputButton {
+    border-bottom: 1px solid $c-blue-01;
+  }
+
+  &__input {
+    font-size: 1.4rem;
+    line-height: 1.71;
+    color: $c-blue-01;
+
+    &--w90 {
+      width: 90%;
+    }
+  }
+}

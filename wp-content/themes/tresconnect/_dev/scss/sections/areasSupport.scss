@@ -1,0 +1,113 @@
+.areasSupport {
+  padding: 40px 0;
+
+  &__title {
+
+    hr {
+      width: 46px;
+      height: 5px;
+      background-color: $c-green-02;
+      margin-top: 35px;
+      margin-bottom: 45px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+
+    @include rwd('large-phone') {
+      margin: -8px 0;
+    }
+  }
+
+  &__itemBox {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 15px;
+
+    @include rwd('large-tablet') {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    @include rwd('large-phone') {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 8px 0;
+    }
+  }
+
+  &__item {
+    border: 1px solid $c-gray-03;
+    padding: 45px 40px;
+    height: 100%;
+    position: relative;
+  }
+
+  &__itemText {
+    padding-top: 20px;
+
+    p {
+      padding-top: 20px;
+    }
+  }
+
+  &__itemOnHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $c-green-02;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__showMoreOnHover {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 46px;
+    height: 46px;
+    background-color: $c-blue-02;
+
+    span {
+      color: $c-white;
+      font-size: 2.8rem;
+    }
+  }
+
+  &__itemOnHoverItem {
+    font-family: $f-Work_Sans;
+    font-size: 1.5rem;
+    line-height: 2.5;
+    color: $c-white;
+  }
+
+  &__showMore {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 46px;
+    height: 46px;
+    background-color: $c-green-02;
+
+    span {
+      color: $c-white;
+      font-size: 2.4rem;
+    }
+  }
+}

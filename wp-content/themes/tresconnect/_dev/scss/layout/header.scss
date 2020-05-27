@@ -1,0 +1,107 @@
+.header {
+
+  &__basic {
+
+    @include rwd('tablet') {
+      display: none;
+    }
+  }
+
+  &__basicWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+  }
+
+  &__searchWrapper {
+    max-width: 200px;
+  }
+
+  &__onScroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-color: $c-white;
+    width: 100%;
+    padding: 25px 0;
+    transform: translate(0, -100px);
+    transition: transform .3s ease-in-out;
+
+    &.active {
+      transform: translate(0, 0);
+    }
+
+    @include rwd('tablet') {
+      transform: translate(0, 0);
+    }
+  }
+
+  &__onScrollWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__search,
+  &__icons,
+  &__hamburger {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+
+  &__search {
+
+  }
+
+  &__logo {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__icons {
+
+    a {
+      margin-left: auto;
+    }
+  }
+
+  &__hamburger {
+
+  }
+
+  &__hamburgerButton {
+    width: 34px;
+    height: 28px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__sidebar {
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    background-color: $c-white;
+    height: 100vh;
+    width: 30%;
+    transform: translate(-100%, 0);
+    transition: transform .3s ease-in-out;
+
+    @include rwd('tablet') {
+      width: 85%;
+    }
+
+    &.active {
+      transform: translate(0, 0);
+    }
+  }
+}

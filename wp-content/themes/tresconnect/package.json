@@ -1,0 +1,38 @@
+{
+  "name": "project",
+  "description": "",
+  "author": {
+    "name": "Karol Piekarski",
+    "email": "kontakt@karolpiekarski.pl",
+    "url": "https://karolpiekarski.pl/"
+  },
+  "main": "webpack.mix.js",
+  "scripts": {
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "npm run development",
+    "watch": "npm run development -- --watch",
+    "prod": "npm run production"
+  },
+  "browserslist": [
+    "chrome 60",
+    "firefox 55",
+    "safari 10",
+    "edge 15",
+    "ie 11"
+  ],
+  "devDependencies": {
+    "aos": "^2.3.4",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "glightbox": "^2.0.5",
+    "mati-mix": "^2.0.1",
+    "node-sass": "^4.12.0"
+  },
+  "dependencies": {
+    "gsap": "^2.1.3",
+    "tiny-slider": "^2.9.2"
+  }
+}

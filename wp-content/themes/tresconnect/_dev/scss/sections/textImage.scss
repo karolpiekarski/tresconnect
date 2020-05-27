@@ -1,0 +1,209 @@
+.textImage {
+  padding: 104px 0;
+  position: relative;
+
+  @include rwd('tablet') {
+    padding: 50px 0;
+  }
+
+  &__mobilePadding0 {
+
+    @include rwd('tablet') {
+      padding: 0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    @include rwd('tablet') {
+      flex-direction: column;
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+
+      @include rwd('tablet') {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__text {
+    width: 50%;
+    padding: 0 30px 0 0;
+
+    @include parent('.reverse', '') {
+      padding: 0 0 0 30px;
+    }
+
+    @include rwd('tablet') {
+      width: 100%;
+      padding: 45px 20px;
+    }
+  }
+
+  &__textDate {
+    font-size: 2.0rem;
+    font-weight: 300;
+    line-height: 2.9;
+    color: $c-gray-05;
+  }
+
+  &__textContent {
+
+    h2 {
+      font-size: 4.7rem;
+      line-height: 0.83;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.63;
+      padding-top: 34px;
+    }
+
+    hr {
+      width: 46px;
+      height: 5px;
+      background-color: $c-green-02;
+      margin-left: 0;
+      margin-top: 35px;
+      margin-bottom: 45px;
+    }
+  }
+
+  &__textButton {
+    padding-top: 50px;
+
+    @include rwd('tablet') {
+      max-width: 100%;
+      width: 100%;
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+
+  &__images {
+    width: 50%;
+    text-align: right;
+
+    img {
+      width: 100%;
+    }
+
+    @include rwd('tablet') {
+      width: 100%;
+      position: relative;
+    }
+
+    @include parent('.reverse', '') {
+      text-align: left;
+    }
+  }
+
+  &__imageSmall {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    width: 25%;
+
+    @include parent('.reverse', '') {
+      left: 23%;
+
+      @include rwd('tablet') {
+        left: 40%;
+      }
+    }
+
+    @include rwd('tablet') {
+      width: 50%;
+    }
+
+    img {
+      margin-right: auto;
+
+      @include parent('.reverse', '') {
+        margin-left: auto;
+        margin-right: unset;
+      }
+    }
+  }
+
+  &__square1 {
+    position: absolute;
+    left: -5%;
+    bottom: -5%;
+
+    width: 10%;
+    height: 11.45%;
+
+    opacity: 0.75;
+    background-color: $c-green-02;
+  }
+
+  &__square2 {
+    position: absolute;
+    left: 20%;
+    top: -20%;
+    z-index: -1;
+
+    width: 40%;
+    height: 40%;
+
+    opacity: 0.25;
+    background-color: $c-green-02;
+
+    @include parent('.reverse', '') {
+      left: unset;
+      right: 12%;
+    }
+  }
+
+  &__square3 {
+    position: absolute;
+    right: -5%;
+    bottom: -5%;
+    z-index: -1;
+
+    width: 70%;
+    height: 70%;
+
+    opacity: 0.75;
+    background-color: $c-green-02;
+  }
+
+  &__imageBig {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    z-index: -1;
+    width: 40%;
+    margin-left: auto;
+
+    @include parent('.reverse', '') {
+      margin-left: unset;
+      margin-right: auto;
+      right: unset;
+      left: 0;
+    }
+
+    @include rwd('tablet') {
+      position: relative;
+      top: 0;
+      transform: translate(0, 0);
+      width: 70%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
