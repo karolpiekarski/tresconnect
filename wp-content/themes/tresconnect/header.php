@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <title><?php wp_title( '|', true, 'right' ); ?></title>
+
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 

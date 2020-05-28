@@ -1,0 +1,57 @@
+.iconText {
+  padding-top: 50px;
+  padding-bottom: 40px;
+
+  &__wrapper {
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+
+    @include rwd('tablet') {
+      height: auto;
+    }
+  }
+
+  &__boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+
+    @include rwd('tablet') {
+
+    }
+  }
+
+  &__box {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+
+    @include rwd('tablet') {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      padding-top: 80px;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__icon {
+    width: 168px;
+    height: 168px;
+    border: 2px solid $c-gray-03;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+  }
+
+  &__text {
+    padding-top: 20px;
+  }
+}

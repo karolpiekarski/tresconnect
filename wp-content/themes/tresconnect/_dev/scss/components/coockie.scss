@@ -1,0 +1,49 @@
+#cookie-notice {
+
+  .cookie-notice-container {
+    width: 100%;
+    max-width: ($gridWidth + ($gridGutter * 2));
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 27px 30px;
+    text-align: left;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    &:before,
+    &:after {
+      display: block;
+      clear: both;
+    }
+  }
+
+  .cn-text-container {
+    max-width: 768px;
+    font-family: $f-Work_Sans;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    display: block;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .cn-buttons-container {
+    display: block;
+  }
+
+  .cn-set-cookie.cn-button.bootstrap {
+    background-color: $c-white;
+    color: $c-green-02;
+    padding: 12px 15px;
+    border-radius: 0;
+    width: 232px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -11,7 +11,7 @@
             <div class="header__searchWrapper">
               <form class="form" method="get" action="<?php echo home_url('/'); ?>">
                 <div class="form__inputButton">
-                  <input type="text" class="form__input form__input--w90" name="s" placeholder="<?=__('Search', 'lang')?>" value="<?php the_search_query(); ?>">
+                  <input type="text" class="form__input form__input--w90 form__input--bbnone" name="s" placeholder="<?=__('Search', 'lang')?>" value="<?php the_search_query(); ?>">
                   <button type="submit" class="form__buttonSearch">
                     <img src="<?=get_field('header_search_icon', 'option')['sizes']['large']?>"
                          alt="<?=get_field('header_search_icon', 'option')['title']?>"/>
