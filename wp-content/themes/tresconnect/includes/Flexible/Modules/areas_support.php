@@ -6,7 +6,7 @@
       </div>
       <div class="areasSupport__wrapper">
         <?php foreach ($section['areas'] as $partner): ?>
-          <div class="areasSupport__itemBox">
+          <div class="areasSupport__itemBox" data-aos="fade-up">
             <div class="areasSupport__item" data-area-support>
               <img src="<?=$partner['icon']['sizes']['large']?>" alt="<?=$partner['icon']['title']?>">
               <div class="areasSupport__itemText">

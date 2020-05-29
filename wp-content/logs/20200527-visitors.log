@@ -30,3 +30,5 @@
 192.168.10.1    - [27-May-2020 07:09:55 UTC] "GET /wp-content/themes/tresconnect/public/fonts/Work_Sans/Work_Sans-Regular.ttf :80" 404 - Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36
 192.168.10.1    - [27-May-2020 07:09:55 UTC] "GET /favicon.ico :80" 200 - Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36
 192.168.10.1    - [27-May-2020 07:11:50 UTC] "GET / :80" 200 - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+192.168.10.1    - [27-May-2020 08:28:26 UTC] "GET /wp-login.php?redirect_to=http://tresconnect.test/wp-admin/post.php?post=14&action=edit&reauth=1 :80" 200 - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+192.168.10.1    - [27-May-2020 08:28:34 UTC] "POST /wp-login.php :80" 200 - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36

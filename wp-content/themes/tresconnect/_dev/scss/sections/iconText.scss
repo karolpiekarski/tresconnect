@@ -18,10 +18,6 @@
     flex-wrap: wrap;
     align-items: center;
     height: 100%;
-
-    @include rwd('tablet') {
-
-    }
   }
 
   &__box {

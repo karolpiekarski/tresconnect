@@ -6,11 +6,11 @@
       <?php endif ?>
       <div class="textImage__wrapper <?= $section['revers'] ? 'reverse' : '' ?>">
         <div class="textImage__text">
-          <div class="textImage__textContent">
+          <div class="textImage__textContent" data-aos="fade-up">
             <?php echo $section['text']?>
           </div>
           <?php if ($section['button']): ?>
-            <div class="textImage__textButton">
+            <div class="textImage__textButton" data-aos="fade-up">
               <a href="<?= $section['button']['url']?>"
                  title="<?= $section['button']['title']?>"
                  class="button button__primary button__primary--outline"><?= $section['button']['title']?> →</a>

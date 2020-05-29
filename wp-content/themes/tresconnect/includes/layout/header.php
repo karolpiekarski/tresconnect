@@ -22,8 +22,10 @@
           <?php endif ?>
         </div>
         <div class="header__logo">
-          <img src="<?= get_field('header_logo_basic', 'option')['sizes']['large'] ?>"
-               alt="Logo - <?= bloginfo('name') ?>">
+          <a href="<?= home_url() ?> ">
+            <img src="<?= get_field('header_logo_basic', 'option')['sizes']['large'] ?>"
+                 alt="Logo - <?= bloginfo('name') ?>">
+          </a>
         </div>
         <div class="header__icons">
           <?php foreach (get_field('header_icons_link', 'option') as $link): ?>

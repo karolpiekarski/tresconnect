@@ -1,0 +1,262 @@
+.contactPage {
+  position: relative;
+
+  &--tabletPadding0 {
+
+    @include rwd('large-tablet') {
+      padding: 0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    @include rwd('large-tablet') {
+      padding-bottom: 0;
+    }
+  }
+
+  &__textWrapper {
+    padding: 50px 0;
+  }
+
+  &__formWrapper {
+  }
+
+  &__textWrapper,
+  &__formWrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+
+    @include rwd('large-tablet') {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__form,
+  &__text {
+
+    @include rwd('large-tablet') {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__form {
+    background-color: $c-gray-02;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &__formBg {
+    width: 635px;
+    height: 569px;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+
+    @include rwd('large-tablet') {
+      display: none;
+    }
+  }
+
+  &__textHeader {
+    font-family: $f-Prompt;
+    font-size: 3.6rem;
+    font-weight: $fw-Medium;
+    line-height: 1.25;
+
+    @include rwd('large-tablet') {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3.6rem;
+    }
+
+    hr {
+      width: 46px;
+      height: 5px;
+      background-color: $c-green-02;
+      margin-top: 35px;
+      margin-bottom: 45px;
+      margin-left: 0;
+      border: none;
+
+      @include rwd('large-tablet') {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__formHeader {
+    font-family: $f-Prompt;
+    font-size: 3.6rem;
+    font-weight: $fw-Medium;
+    line-height: 1.25;
+
+    @include rwd('large-tablet') {
+      text-align: center;
+    }
+
+    hr {
+      width: 46px;
+      height: 5px;
+      background-color: $c-green-02;
+      margin-top: 35px;
+      margin-bottom: 45px;
+      margin-left: 0;
+      border: none;
+
+      @include rwd('large-tablet') {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__socials {
+    padding-top: 61px;
+  }
+
+  &__socialsUnder,
+  &__socialTextOver {
+
+    @include rwd('large-phone') {
+      text-align: center;
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  &__socialsLoop {
+    display: flex;
+    padding-top: 20px;
+    margin: -8px;
+
+    @include rwd('large-phone') {
+      margin: 0;
+      justify-content: center;
+    }
+  }
+
+  &__socialItemWrapper {
+    padding: 8px;
+  }
+
+  &__socialItem {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $c-green-02;
+  }
+
+  &__socialsUnder {
+    padding-top: 60px;
+  }
+
+  &__textAddress {
+    padding-bottom: 60px;
+
+    @include rwd('large-tablet') {
+      p {
+        text-align: center;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &__textContacts {
+
+  }
+
+  &__textContact {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+
+    @include rwd('large-tablet') {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__textContactIcon {
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__textContactText {
+
+    @include rwd('large-tablet') {
+      padding-top: 20px;
+    }
+
+    p {
+      padding-left: 20px;
+    }
+
+    a, p {
+      font-family: $f-Prompt;
+      font-size: 1.8rem;
+      font-weight: normal;
+      line-height: 1.33;
+    }
+  }
+
+  &__formInner {
+    padding: 50px;
+    position: relative;
+
+    @include rwd('large-tablet') {
+      padding: 50px 15px;
+    }
+  }
+
+  &__formSquare1 {
+    position: absolute;
+    top: -21px;
+    right: -21px;
+    z-index: -1;
+    width: 251px;
+    height: 253px;
+    opacity: 0.75;
+    background-color: #00a19a;
+
+    @include rwd('large-tablet') {
+      display: none;
+    }
+  }
+
+  &__formSquare2 {
+    position: absolute;
+    top: 56%;
+    right: -86px;
+    z-index: -1;
+    transform: translate(0, -50%);
+
+    width: 168px;
+    height: 168px;
+    opacity: 0.25;
+    background-color: #00a19a;
+
+    @include rwd('laptop') {
+      display: none;
+    }
+  }
+}

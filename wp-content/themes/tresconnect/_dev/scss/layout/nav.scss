@@ -35,6 +35,7 @@
   }
 
   &__link {
+    font-family: $f-Prompt;
     font-size: 1.5rem;
     font-weight: $fw-Medium;
     line-height: 1.5;
@@ -46,7 +47,7 @@
 
     &:hover,
     &.active {
-      color: $c-blue-01;
+      color: $c-green-02;
     }
   }
 }

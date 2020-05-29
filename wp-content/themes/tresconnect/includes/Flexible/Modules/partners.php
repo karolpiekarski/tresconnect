@@ -1,12 +1,12 @@
 <?php if ($section['active']) : ?>
   <section class="partners">
     <div class="container">
-      <div class="partners__title">
+      <div class="partners__title" data-aos="fade-up">
         <?=$section['text']?>
       </div>
       <div class="partners__wrapper">
         <?php foreach ($section['partners'] as $partner): ?>
-        <div class="partners__itemWrapper">
+        <div class="partners__itemWrapper" data-aos="fade-up">
           <div class="partners__item">
             <img src="<?=$partner['logo']['sizes']['large']?>" alt="<?=$partner['logo']['title']?>">
           </div>
@@ -15,7 +15,7 @@
       </div>
 
       <?php if ($section['button']) : ?>
-        <div class="partners__button">
+        <div class="partners__button" data-aos="fade-up">
           <a href="<?=$section['button']['url']?>"
              class="button button__primary"
              target="<?=$section['button']['target']?>"

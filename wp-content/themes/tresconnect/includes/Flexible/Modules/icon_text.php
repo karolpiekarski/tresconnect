@@ -4,7 +4,7 @@
       <div class="container h-100">
         <div class="iconText__boxes">
           <?php foreach ($section['icon_text'] as $box) : ?>
-            <div class="iconText__box">
+            <div class="iconText__box" data-aos="fade-up">
               <div class="iconText__icon">
                 <img src="<?=$box['icon']['sizes']['large']?>" alt="<?=$box['icon']['title']?>">
               </div>

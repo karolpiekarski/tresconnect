@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="317" height="1131.5" viewBox="0 0 317 1131.5">
+  <g id="diagram-mobile" transform="translate(408.25 -234.75) rotate(90)">
+    <path id="Path_249" data-name="Path 249" d="M506.9,195.019A141.328,141.328,0,1,0,518,250" transform="translate(0.25)" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_250" data-name="Path 250" d="M790.834,301.457a141.31,141.31,0,0,1-263.169,0" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="12 8"/>
+    <path id="Path_251" data-name="Path 251" d="M518,250a141.25,141.25,0,0,1,282.5,0" transform="translate(-0.25)" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_252" data-name="Path 252" d="M1083,250a141.132,141.132,0,1,1,11.1,54.981" transform="translate(-0.25)" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_253" data-name="Path 253" d="M513.792,172.426" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_254" data-name="Path 254" d="M496.386,192.059l10.514,2.96,3.922-10.714" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_255" data-name="Path 255" d="M795.376,312.208l-4.542-10.75L780.5,305.875" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_256" data-name="Path 256" d="M1073.034,198.543a141.31,141.31,0,0,0-263.169,0" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="12 8"/>
+    <path id="Path_257" data-name="Path 257" d="M800.2,250a141.25,141.25,0,1,0,282.5,0" transform="translate(-0.45)" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_258" data-name="Path 258" d="M1077.576,187.792l-4.542,10.75-10.333-4.418" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <g id="Group_68" data-name="Group 68" transform="translate(-2254.75 759.25) rotate(-90)">
+      <g id="Group_52" data-name="Group 52" transform="translate(33 -864)">
+        <g id="Ellipse_7" data-name="Ellipse 7" transform="translate(318 3478)" fill="#fff" stroke="#00a19a" stroke-width="2">
+          <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+          <circle cx="17.5" cy="17.5" r="16.5" fill="none"/>
+        </g>
+        <text id="_1" data-name="1" transform="translate(318.5 3483.5)" fill="#163767" font-size="16" font-family="Prompt-SemiBold, Prompt" font-weight="600"><tspan x="13.952" y="17">1</tspan></text>
+      </g>
+    </g>
+    <g id="Group_69" data-name="Group 69" transform="translate(-2908.75 676.25) rotate(-90)">
+      <g id="Ellipse_11" data-name="Ellipse 11" transform="translate(550 3551)" fill="#fff" stroke="#00a19a" stroke-width="2">
+        <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+        <circle cx="17.5" cy="17.5" r="16.5" fill="none"/>
+      </g>
+      <text id="_2" data-name="2" transform="translate(550.5 3556.5)" fill="#163767" font-size="16" font-family="Prompt-SemiBold, Prompt" font-weight="600"><tspan x="12.336" y="17">2</tspan></text>
+    </g>
+    <g id="Group_70" data-name="Group 70" transform="translate(-2553.75 1191.25) rotate(-90)">
+      <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(783 3478)" fill="#fff" stroke="#00a19a" stroke-width="2">
+        <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+        <circle cx="17.5" cy="17.5" r="16.5" fill="none"/>
+      </g>
+      <text id="_3" data-name="3" transform="translate(783 3483.5)" fill="#163767" font-size="16" font-family="Prompt-SemiBold, Prompt" font-weight="600"><tspan x="12.384" y="17">3</tspan></text>
+    </g>
+    <g id="Group_71" data-name="Group 71" transform="translate(-4736.75 2513.25) rotate(-90)">
+      <g id="Group_55" data-name="Group 55" transform="translate(1372 2393)">
+        <g id="Ellipse_10" data-name="Ellipse 10" transform="translate(1015 3551)" fill="#fff" stroke="#00a19a" stroke-width="2">
+          <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+          <circle cx="17.5" cy="17.5" r="16.5" fill="none"/>
+        </g>
+        <text id="_4" data-name="4" transform="translate(1015 3556.5)" fill="#163767" font-size="16" font-family="Prompt-SemiBold, Prompt" font-weight="600"><tspan x="12.104" y="17">4</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
