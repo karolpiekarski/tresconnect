@@ -150,6 +150,18 @@ Please remember that **Safari and Internet Explorer do not support the WebP form
 
 You can find more about WebP support by browsers [here](https://caniuse.com/#feat=webp).
 
+= Forced rewrites to WebP =
+
+The plugin uses rules in the .htaccess file to redirect from the original image to an image in WebP format. Verifies whether the WebP file exists and whether your browser supports the WebP format. It does this every time you try to load an image.
+
+When you enter from a WebP supporting device, it will redirect. However, when someone uses a browser that does not support WebP, the redirection will not work and you get the original file.
+
+However, if you see corrupted images on browsers that do not support WebP, it means that your server uses cache for rewrites from the .htaccess file. Then the plugin will not work properly because the server instead of reading the rules from the .htaccess file every time uses its cache and does the redirection automatically.
+
+How can you check it? When you turn off the plugin, the rewrites from the .htaccess file are removed, which means you should see the original images on every browser. If this is not the case and you see forced redirects to WebP files, it means that your server remembers the redirects you made earlier and uses cache.
+
+In this situation, please contact your server administrator. Each configuration is different. It can be e.g. module `mod_pagespeed` or other similar. This functionality must be turned off so that the server reads and executes the rules from the .htaccess file each time the images are loaded. This cannot be ignored because it will cause problems.
+
 = What to do after installing plugin? =
 
 After installing the plugin, you should convert all existing images.
@@ -186,6 +198,12 @@ Only images from the `/uploads` directory are converted. If you use other plugin
 If the converted image in WebP format is larger than the original, the browser will use the original file. This converted file will be deleted. Therefore, you can also see files other than WebP on the list.
 
 If you want to force the use of WebP files, uncheck the `Automatic removal of WebP files larger than original` option in the plugin settings. Then click on the `Regenerate All` button to convert all images again.
+
+In addition, images may not be displayed in WebP format if they are files downloaded from the `/themes` directory or from a directory of another plugin that is not compatible.
+
+Remember that this plugin supports images from the `/uploads` directory, i.e. files downloaded from the media library. Similarly, if your images are downloaded from another domain, i.e. from an external service.
+
+When checking the operation of the plugin, e.g. in Dev Tools, pay attention to the path from which the files are downloaded.
 
 = Where are converted images stored? =
 
@@ -424,12 +442,15 @@ This is all very important to us and allows us to do even better things for you!
 
 == Changelog ==
 
+= 1.2.6 (2020-05-28) =
+* `[Fixed]` Removal of WebP files larger than original during upload
+
 = 1.2.5 (2020-05-10) =
 * `[Removed]` Link to plugin settings on Network Admin Screen for WordPress Multisite
 * `[Fixed]` Path in RewriteRule for WordPress Multisite
 * `[Changed]` Error messages in administration panel
 * `[Added]` Support for `disable_functions` setting for using `set_time_limit` function
-* `[Added]` Support for blocked function `file_get_contents` 
+* `[Added]` Support for blocked function `file_get_contents`
 
 = 1.2.4 (2020-04-24) =
 * `[Changed]` Error messages in administration panel

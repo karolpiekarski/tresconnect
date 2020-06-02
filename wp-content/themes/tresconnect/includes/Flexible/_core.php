@@ -11,6 +11,8 @@ if ($sections) {
   foreach ($sections as $index => $section) {
     $path = __DIR__.'/Modules/'.$section['acf_fc_layout'].'.php';
 
+    if (!$section['active']) continue;
+
     if (file_exists($path)) {
       include $path;
     } else {

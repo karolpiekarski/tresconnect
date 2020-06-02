@@ -23,8 +23,6 @@
 
       foreach ($paths as $path) {
         $response = $convert->convertImage($path, $settings['quality']);
-        if ($response['success'] && (in_array('only_smaller', $settings['features'])
-          && !$this->checkFileSize($response['data']))) continue;
 
         if ($response['success'] !== true) {
           $errors[] = $response['message'];
@@ -41,12 +39,5 @@
           'after'  => $sizeAfter,
         ],
       ];
-    }
-
-    private function checkFileSize($data)
-    {
-      if ($data['size']['after'] < $data['size']['before']) return true;
-      unlink($data['path']);
-      return false;
     }
   }

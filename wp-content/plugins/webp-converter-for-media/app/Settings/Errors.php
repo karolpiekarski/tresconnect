@@ -26,7 +26,7 @@
         'path_duplicated'  => ($this->ifPathsAreDifferent() !== true),
         'rest_api'         => ($this->ifRestApiIsEnabled() !== true),
         'methods'          => ($this->ifMethodsAreAvailable() !== true),
-        'bypassing_apache' => ($this->ifBypassingApacheIsActive() !== true),
+        'bypassing_apache' => ($this->ifBypassingApacheIsActive() === true),
       ];
 
       $this->list = array_keys(array_filter($list));
@@ -76,9 +76,17 @@
 
     private function ifBypassingApacheIsActive()
     {
-      $filePng  = @file_get_contents(WEBPC_URL . 'public/img/icon-before.png');
-      $filePng2 = @file_get_contents(WEBPC_URL . 'public/img/icon-before.png2');
+      $ctx = stream_context_create([
+        'http' => [
+          'timeout' => 1,
+        ],
+      ]);
+      $filePng = @file_get_contents(WEBPC_URL . 'public/img/icon-before.png', false, $ctx);
+      if ($filePng === false) return false;
 
-      return (strlen($filePng) >= strlen($filePng2));
+      $filePng2 = @file_get_contents(WEBPC_URL . 'public/img/icon-before.png2', false, $ctx);
+      if ($filePng2 === false) return false;
+
+      return (strlen($filePng) < strlen($filePng2));
     }
   }

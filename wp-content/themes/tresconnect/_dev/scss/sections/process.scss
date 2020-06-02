@@ -1,0 +1,249 @@
+.process {
+  padding: 50px 0;
+
+  &__title {
+
+    hr {
+      width: 46px;
+      height: 5px;
+      background-color: $c-green-02;
+      margin-top: 35px;
+      margin-bottom: 100px;
+    }
+  }
+
+  &__timeline {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      left: 50%;
+      background-color: $c-gray-03;
+
+      @include rwd('large-tablet') {
+        display: none;
+      }
+    }
+  }
+
+  ul {
+
+    @include rwd('large-tablet') {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    li {
+      margin-bottom: 50px;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      @include rwd('large-tablet') {
+        flex: 0 0 50%;
+        max-width: 50%;
+        display: block;
+      }
+
+      @include rwd('tablet') {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      &:nth-child(odd) {
+        flex-direction: row;
+
+        .contentWrapper {
+          margin-left: unset;
+          margin-right: auto;
+        }
+
+        .iconWrapper {
+
+          &:after {
+            left: unset;
+            right: -20px;
+          }
+
+          &:before {
+            right: unset;
+            left: -75%;
+          }
+        }
+
+        .process__point {
+          left: -29px;
+        }
+
+        .process__pointMobile {
+          right: unset;
+          left: -27px;
+        }
+      }
+
+      &:nth-child(odd) .content {
+        padding-left: 0;
+      }
+
+      &:nth-child(odd) .date {
+        padding-right: 0;
+      }
+
+      &:nth-child(even) .content {
+        padding-right: 0;
+      }
+
+      &:nth-child(even) .date {
+        padding-left: 0;
+      }
+    }
+
+    .content {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 0 20px;
+
+      hr {
+        width: 46px;
+        height: 5px;
+        background-color: $c-green-02;
+        margin-top: 35px;
+        margin-bottom: 45px;
+        margin-left: 0;
+      }
+
+      @include rwd('large-tablet') {
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        text-align: center;
+
+        hr {
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        p {
+          text-align: center;
+        }
+      }
+
+      @include rwd('tablet') {
+        padding: 0;
+      }
+    }
+
+    .contentWrapper {
+      max-width: 435px;
+      margin-left: auto;
+
+      @include rwd('large-tablet') {
+        max-width: 100%;
+      }
+    }
+
+    .icon {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 25px;
+      font-weight: normal;
+
+      @include rwd('large-tablet') {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 75px 0;
+      }
+
+      .iconWrapper {
+        width: 264px;
+        height: 264px;
+        box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        position: relative;
+        background-color: $c-white;
+
+        &:after {
+          content: '';
+          width: 229px;
+          height: 231px;
+          opacity: 0.75;
+          background-color: $c-green-02;
+          position: absolute;
+          bottom: -20px;
+          left: -20px;
+          z-index: -1;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          right: -75%;
+          z-index: -1;
+          width: 100%;
+          height: 0;
+          border: 1px solid $c-gray-03;
+
+          @include rwd('large-tablet') {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &:nth-child(even) .date h4 {
+      float: right
+    }
+  }
+
+  &__point {
+    min-width: 57px;
+    height: 57px;
+    background-color: $c-green-02;
+    z-index: 2;
+    position: relative;
+    left: 29px;
+
+    font-family: $f-Prompt;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1;
+    color: $c-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include rwd('large-tablet') {
+      display: none;
+    }
+  }
+
+  &__pointMobile {
+    width: 57px;
+    height: 57px;
+    background-color: $c-green-02;
+    z-index: 2;
+    position: absolute;
+
+    font-family: $f-Prompt;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1;
+    color: $c-white;
+    display: none;
+
+    @include rwd('large-tablet') {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -27px;
+      right: -27px;
+    }
+  }
+}

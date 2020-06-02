@@ -80,14 +80,14 @@
         if (!$success) {
           throw new \Exception('Error occurred while converting image.');
         }
+        do_action('webpc_convert_after', $output, $path);
 
         return [
           'success' => true,
           'data'    => [
-            'path' => $output,
             'size' => [
               'before' => filesize($path),
-              'after'  => filesize($output),
+              'after'  => filesize((file_exists($output)) ? $output : $path),
             ],
           ],
         ];
