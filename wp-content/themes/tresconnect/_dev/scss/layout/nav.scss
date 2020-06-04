@@ -44,6 +44,7 @@
     color: $c-black;
     padding: 0 29px;
     transition: color .3s ease-in-out;
+    text-transform: uppercase;
 
     &:hover,
     &.active {

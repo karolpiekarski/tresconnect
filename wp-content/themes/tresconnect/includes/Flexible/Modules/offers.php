@@ -27,16 +27,15 @@
           <div class="offers__boxBg" style="background-image: url(<?= $box['box']['bg_image']['sizes']['large'] ?>)"></div>
         <?php endif ?>
 
-
         <div class="offers__box">
           <div class="offers__boxSquare1"></div>
           <?php if ($box['box']['bg_image']): ?>
             <div class="offers__boxSquare2"></div>
           <?php endif ?>
-          <div class="offers__boxIcon">
+          <div class="offers__boxIcon" data-aos="fade-up">
             <img src="<?= $box['box']['icon']['sizes']['large'] ?>" alt="<?= $box['box']['icon']['title'] ?>">
           </div>
-          <div class="offers__boxText">
+          <div class="offers__boxText" data-aos="fade-up">
             <?= $box['box']['tekst'] ?>
           </div>
           <?php if ($box['box']['button']) : ?>
