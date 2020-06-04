@@ -36,3 +36,10 @@ body {
 .over-hidden {
   overflow: hidden;
 }
+
+main {
+
+  @include rwd('tablet') {
+    padding-top: 32px;
+  }
+}

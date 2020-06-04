@@ -104,6 +104,10 @@
 
   &__boxIcon {
 
+    @include rwd('large-phone') {
+      text-align: center;
+    }
+
   }
 
   &__boxSquare1 {
@@ -156,6 +160,10 @@
     h3 {
       font-size: 3.0rem;
       padding-top: 15px;
+
+      @include rwd('large-phone') {
+        text-align: center;
+      }
     }
 
     hr {
@@ -165,6 +173,11 @@
       margin-top: 24px;
       margin-bottom: 30px;
       margin-left: 0;
+
+      @include rwd('large-phone') {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
 
     ul {

@@ -56,8 +56,8 @@
     }
 
     @include rwd('large-phone') {
-      flex: 0 0 50%;
-      max-width: 50%;
+      flex: 0 0 100%;
+      max-width: 100%;
     }
 
     &--1 {
@@ -142,6 +142,10 @@
   }
 
   &__boxArrow {
+
+    @include rwd('large-phone') {
+      display: none;
+    }
 
     &--1 {
       height: 170px;
@@ -256,6 +260,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $c-white;
+    transition: transform .3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.15);
+    }
 
     @include rwd('large-tablet') {
       margin: 0 auto;

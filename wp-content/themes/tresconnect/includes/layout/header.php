@@ -60,8 +60,14 @@
           </button>
         </div>
         <div class="header__logo">
-          <img src="<?= get_field('header_logo_scroll', 'option')['sizes']['large'] ?>"
+          <a href="<?= home_url() ?> " class="header__logo--desktop">
+            <img src="<?= get_field('header_logo_scroll', 'option')['sizes']['large'] ?>"
                alt="Logo - <?= bloginfo('name') ?>">
+          </a>
+          <a href="<?= home_url() ?> " class="header__logo--mobile">
+            <img src="<?= get_field('header_logo_basic', 'option')['sizes']['large'] ?>"
+               alt="Logo - <?= bloginfo('name') ?>">
+          </a>
         </div>
         <div class="header__icons">
           <?php foreach (get_field('header_icons_link', 'option') as $link): ?>

@@ -68,6 +68,10 @@
     display: flex;
     flex-direction: column-reverse;
 
+    @include rwd('large-phone') {
+      flex-direction: column;
+    }
+
     &.revers {
       flex-direction: column;
     }
@@ -157,7 +161,8 @@
     padding-bottom: 25px;
 
     @include rwd('large-tablet') {
-      padding-bottom: 15px;
+      padding-top: 15px;
+      padding-bottom: 0;
     }
 
     @include parent('.revers', '') {
@@ -166,6 +171,7 @@
 
       @include rwd('large-tablet') {
         padding-top: 15px;
+        padding-bottom: 0;
       }
     }
 

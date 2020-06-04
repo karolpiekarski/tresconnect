@@ -16,7 +16,6 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    align-items: center;
     height: 100%;
   }
 
@@ -49,5 +48,12 @@
 
   &__text {
     padding-top: 20px;
+
+    max-width: 280px;
+    margin: 0 auto;
+
+    p {
+      padding-top: 20px;
+    }
   }
 }

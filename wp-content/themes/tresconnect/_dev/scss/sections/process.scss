@@ -1,7 +1,19 @@
 .process {
   padding: 50px 0;
 
+  &--mobilePadding0 {
+
+    @include rwd('large-tablet') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   &__title {
+
+    h1 {
+      font-size: 4.6rem;
+    }
 
     hr {
       width: 46px;
@@ -9,6 +21,10 @@
       background-color: $c-green-02;
       margin-top: 35px;
       margin-bottom: 100px;
+
+      @include rwd('large-phone') {
+        margin-bottom: 50px;
+      }
     }
   }
 
@@ -47,15 +63,21 @@
         flex: 0 0 50%;
         max-width: 50%;
         display: block;
+        margin-bottom: 0;
       }
 
       @include rwd('tablet') {
         flex: 0 0 100%;
         max-width: 100%;
+        padding: 50px 0;
       }
 
       &:nth-child(odd) {
         flex-direction: row;
+
+        @include rwd('large-phone') {
+          background-color: $c-gray-06;
+        }
 
         .contentWrapper {
           margin-left: unset;
@@ -106,6 +128,21 @@
       flex: 0 0 50%;
       max-width: 50%;
       padding: 0 20px;
+
+      h3 {
+        font-size: 3.0rem;
+
+        @include rwd('large-tablet') {
+          padding: 0 15px;
+        }
+      }
+
+      p {
+
+        @include rwd('large-tablet') {
+          padding: 0 15px;
+        }
+      };
 
       hr {
         width: 46px;

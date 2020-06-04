@@ -2,13 +2,23 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  margin-top: 50px;
 
   &__wrapper {
     padding-top: 80px;
     padding-bottom: 130px;
+
+    @include rwd('large-phone') {
+      padding-top: 60px;
+      padding-bottom: 50px;
+    }
   }
 
   &__title {
+
+    h2 {
+      font-size: 3.0rem;
+    }
 
     hr {
       width: 46px;
@@ -60,6 +70,13 @@
 
   &__buttonWrapper {
     padding-top: 60px;
+
+    @include rwd('large-phone') {
+
+      a {
+        width: 100%;
+      }
+    }
   }
 
   &__button {

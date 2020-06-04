@@ -47,8 +47,8 @@
   &__search,
   &__icons,
   &__hamburger {
-    flex: 0 0 30%;
-    max-width: 30%;
+    flex: 0 0 20%;
+    max-width: 20%;
   }
 
   &__search {
@@ -56,9 +56,25 @@
   }
 
   &__logo {
-    flex: 0 0 40%;
-    max-width: 40%;
+    flex: 0 0 60%;
+    max-width: 60%;
     text-align: center;
+
+    &--desktop {
+      display: block;
+
+      @include rwd('tablet') {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+
+      @include rwd('tablet') {
+        display: block;
+      }
+    }
 
     img {
       max-width: 100%;

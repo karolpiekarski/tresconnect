@@ -1,0 +1,20 @@
+#cookie-notice {
+
+  .cookie-notice-container {
+    flex-wrap: wrap;
+  }
+
+  #cn-close-notice {
+    display: none;
+  }
+
+  #cn-notice-buttons {
+    padding-top: 15px;
+    width: 100%;
+
+    a {
+      width: 100%;
+    }
+  }
+}
+
