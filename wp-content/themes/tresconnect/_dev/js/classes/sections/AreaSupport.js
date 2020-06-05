@@ -23,6 +23,7 @@ export default class AreaSupport {
   setEvents() {
     this.areasSupport.forEach((elWrapper) => {
       elWrapper.querySelector(`[${this.settings.open}]`).addEventListener('click', () => {
+        this.removeActiveAll();
         this.toggleActive(elWrapper);
       });
       
@@ -34,5 +35,11 @@ export default class AreaSupport {
   
   toggleActive(elWrapper) {
     elWrapper.querySelector(`[${this.settings.item}]`).toggleClass('active')
+  }
+  
+  removeActiveAll() {
+    this.areasSupport.forEach((elWrapper) => {
+      elWrapper.querySelector(`[${this.settings.item}]`).removeClass('active')
+    });
   }
 }
