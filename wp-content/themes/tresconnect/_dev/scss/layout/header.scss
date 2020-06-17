@@ -7,18 +7,18 @@
     }
   }
 
-  &__basicWrapper {
+  &__basic-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 50px 0;
   }
 
-  &__searchWrapper {
+  &__search-wrapper {
     max-width: 200px;
   }
 
-  &__onScroll {
+  &__on-scroll {
     position: fixed;
     top: 0;
     left: 0;
@@ -38,7 +38,7 @@
     }
   }
 
-  &__onScrollWrapper {
+  &__on-scroll-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,9 +51,7 @@
     max-width: 20%;
   }
 
-  &__search {
-
-  }
+  &__search {}
 
   &__logo {
     flex: 0 0 60%;
@@ -88,9 +86,7 @@
     }
   }
 
-  &__hamburger {
-
-  }
+  &__hamburger {}
 
   &__hamburgerButton {
     width: 34px;
@@ -118,6 +114,31 @@
 
     &.active {
       transform: translate(0, 0);
+    }
+  }
+
+  &__sidebar-top-bar {
+    height: 85px;
+    background-color: $c-green-02;
+    position: relative;
+  }
+
+  &__sidebar-button-close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $c-white;
+    font-size: 3.2rem;
+
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0, -50%);
+
+    img {
+      width: 100%;
     }
   }
 }

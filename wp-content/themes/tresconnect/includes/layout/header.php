@@ -5,10 +5,10 @@
 <header class="header">
   <div class="container">
     <div class="header__basic">
-      <div class="header__basicWrapper">
+      <div class="header__basic-wrapper">
         <div class="header__search">
           <?php if (get_field('header_active_search', 'option')) : ?>
-            <div class="header__searchWrapper">
+            <div class="header__search-wrapper">
               <form class="form" method="get" action="<?php echo home_url('/'); ?>">
                 <div class="form__inputButton">
                   <input type="text" class="form__input form__input--w90 form__input--bbnone" name="s" placeholder="<?=__('Search', 'lang')?>" value="<?php the_search_query(); ?>">
@@ -39,9 +39,9 @@
         </div>
       </div>
       <nav class="nav">
-        <ul class="nav__basicItems">
+        <ul class="nav__basic-items">
           <?php foreach ($menu as $item) : ?>
-            <li class="nav__basicItem">
+            <li class="nav__basic-item">
               <a href="<?=$item['url']?>" class="nav__link <?=$item['active'] ? 'active' : ''?>"><?=$item['title']?></a>
             </li>
           <?php endforeach; ?>
@@ -50,11 +50,11 @@
     </div>
   </div>
 
-  <div class="header__onScroll" data-header-onScroll data-menu>
+  <div class="header__on-scroll" data-header-onScroll data-menu>
     <div class="container">
-      <div class="header__onScrollWrapper">
+      <div class="header__on-scroll-wrapper">
         <div class="header__hamburger">
-          <button class="header__hamburgerButton" data-menu-button>
+          <button class="header__hamburger-button" data-menu-button>
             <img src="<?=get_field('header_hamburger_icon', 'option')['sizes']['large']?>"
                  alt="<?=get_field('header_hamburger_icon', 'option')['title']?>"/>
           </button>
@@ -83,10 +83,16 @@
     </div>
 
     <div class="header__sidebar" data-menu-wrapper>
+      <div class="header__sidebar-top-bar">
+        <button class="header__sidebar-button-close" data-menu-close>
+        <img src="<?=get_field('header_close_icon', 'option')['sizes']['large']?>"
+                 alt="<?=get_field('header_close_icon', 'option')['title']?>"/>
+        </button>
+      </div>
       <nav class="nav">
-        <ul class="nav__basicItems">
+        <ul class="nav__basic-items">
           <?php foreach ($menu as $item) : ?>
-            <li class="nav__basicItem">
+            <li class="nav__basic-item">
               <a href="<?=$item['url']?>" class="nav__link <?=$item['active'] ? 'active' : ''?>"><?=$item['title']?></a>
             </li>
           <?php endforeach; ?>

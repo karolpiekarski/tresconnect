@@ -4,24 +4,21 @@
     height: 100%;
   }
 
-  &__basic {
-
-  }
-
-  &__basicItems {
+  &__basic-items {
     display: flex;
     justify-content: center;
     padding-bottom: 50px;
 
     @include parent('.header__sidebar', '') {
-      height: 100%;
+      height: calc(100vh - 85px);
       flex-direction: column;
+      justify-content: unset;
       align-items: center;
       padding-bottom: 0;
     }
   }
 
-  &__basicItem {
+  &__basic-item {
     border-right: 1px solid $c-gray-05;
 
     &:last-child {
