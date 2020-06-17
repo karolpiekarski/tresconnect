@@ -261,11 +261,6 @@
     justify-content: center;
     align-items: center;
     background-color: $c-white;
-    transition: transform .3s ease-in-out;
-
-    &:hover {
-      transform: scale(1.15);
-    }
 
     @include rwd('large-tablet') {
       margin: 0 auto;
