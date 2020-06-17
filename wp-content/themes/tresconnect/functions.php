@@ -18,6 +18,7 @@ add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 
 add_action('wp_enqueue_scripts', 'remove_block_css', 100);
+
 function remove_block_css()
 {
   wp_dequeue_style('wp-block-library'); // WordPress core
@@ -81,4 +82,3 @@ function my_jquery_enqueue()
 //}
 
 //add_action('init', 'custom_post_type', 0);
-

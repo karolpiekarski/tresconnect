@@ -8,5 +8,6 @@
     {
       define('SITE_CONFIG', require 'Config.php');
 
+      new Orphan\Orphan();
     }
   }
