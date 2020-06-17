@@ -13,6 +13,14 @@
             <div class="content">
               <div class="contentWrapper">
                 <?=$box['text']?>
+
+                <?php if ($box['button']) : ?>
+                  <div class="process__button">
+                    <a href="<?= $box['button']['url']?>" title="<?= $box['button']['title']?>" class="button button__primary button__primary--outline">
+                      <?= $box['button']['title']?> →
+                    </a>
+                  </div> 
+                <?php endif; ?>
               </div>
             </div>
             <div class="process__point"><?=str_pad(($index + 1), 2, '0', STR_PAD_LEFT)?>.</div>
