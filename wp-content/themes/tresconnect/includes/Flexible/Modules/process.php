@@ -23,11 +23,11 @@
                 <?php endif; ?>
               </div>
             </div>
-            <div class="process__point"><?=str_pad(($index + 1), 2, '0', STR_PAD_LEFT)?>.</div>
+            <div class="process__point"><?=$index + 1?></div>
             <div class="icon">
 
               <div class="iconWrapper">
-                <div class="process__pointMobile"><?=str_pad(($index + 1), 2, '0', STR_PAD_LEFT)?>.</div>
+                <div class="process__pointMobile"><?=$index + 1?></div>
 
                 <img src="<?=$box['icon']['sizes']['large']?>" alt="<?=$box['icon']['title']?>">
               </div>

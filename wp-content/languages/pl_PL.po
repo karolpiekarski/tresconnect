@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-25 09:47:39+0000\n"
+"PO-Revision-Date: 2020-06-09 06:38:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1424,7 +1424,7 @@ msgstr "Proszę załadować plik audio, wybrać z biblioteki lub dodać nowy z a
 
 #: wp-includes/js/dist/block-editor.js:21264
 msgid "Upload a media file or pick one from your media library."
-msgstr "Załaduj plik lub wybierz z biblioteki mediów."
+msgstr "Prześlij plik lub wybierz z biblioteki mediów."
 
 #: wp-includes/js/dist/block-editor.js:18746
 msgid "Skip"
@@ -1739,7 +1739,7 @@ msgstr "Nie spełniono wymagań"
 msgid "The %1$s, %2$s, and %3$s values can be edited to set the video track language and kind."
 msgstr "Wartości %1$s, %2$s i %3$s można edytować, aby ustawić język i rodzaj ścieżki wideo."
 
-#: wp-includes/comment.php:3498
+#: wp-includes/comment.php:3503
 msgid "User&#8217;s comment data."
 msgstr "Dane komentarza użytkownika."
 
@@ -2500,8 +2500,8 @@ msgstr[0] "Nieudany <span class=\"count\">(%s)</span>"
 msgstr[1] "Nieudane <span class=\"count\">(%s)</span>"
 msgstr[2] "Nieudanych <span class=\"count\">(%s)</span>"
 
-#: wp-includes/class-walker-comment.php:271
-#: wp-includes/class-walker-comment.php:361
+#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:402
 msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
 msgstr "Komentarz czeka na zatwierdzenie. To jest podgląd komentarza, który będzie widoczny po jego zatwierdzeniu."
 
@@ -5573,7 +5573,7 @@ msgid "[deleted]"
 msgstr "[usunięto]"
 
 #. translators: %d: Comment ID.
-#: wp-includes/comment.php:3599
+#: wp-includes/comment.php:3604
 msgid "Comment %d contains personal data but could not be anonymized."
 msgstr "Komentarz %d zawiera dane osobiste, ale nie mógł być zanonimizowany."
 
@@ -5678,39 +5678,39 @@ msgctxt "request status"
 msgid "Pending"
 msgstr "Oczekuje"
 
-#: wp-includes/comment.php:3454
+#: wp-includes/comment.php:3459
 msgid "Comment URL"
 msgstr "Adres URL komentarza"
 
-#: wp-includes/comment.php:3453
+#: wp-includes/comment.php:3458
 msgid "Comment Content"
 msgstr "Treść komentarza"
 
-#: wp-includes/comment.php:3452
+#: wp-includes/comment.php:3457
 msgid "Comment Date"
 msgstr "Data komentarza"
 
-#: wp-includes/comment.php:3451
+#: wp-includes/comment.php:3456
 msgid "Comment Author User Agent"
 msgstr "User Agent autora komentarza"
 
-#: wp-includes/comment.php:3450
+#: wp-includes/comment.php:3455
 msgid "Comment Author IP"
 msgstr "Adres IP autora komentarza"
 
-#: wp-includes/comment.php:3449
+#: wp-includes/comment.php:3454
 msgid "Comment Author URL"
 msgstr "Adres URL autora komentarza"
 
-#: wp-includes/comment.php:3448
+#: wp-includes/comment.php:3453
 msgid "Comment Author Email"
 msgstr "Adres email autora komentarza"
 
-#: wp-includes/comment.php:3447
+#: wp-includes/comment.php:3452
 msgid "Comment Author"
 msgstr "Autor komentarza"
 
-#: wp-includes/comment.php:3412 wp-includes/comment.php:3522
+#: wp-includes/comment.php:3417 wp-includes/comment.php:3527
 msgid "WordPress Comments"
 msgstr "Komentarze WordPressa"
 
@@ -7269,7 +7269,7 @@ msgstr "Sugerowane wymiary obrazu: %1$s na piksele %2$s."
 msgid "Sorry, this file type is not permitted for security reasons."
 msgstr "Przepraszamy, ze względów bezpieczeństwa ten typ pliku nie jest dozwolony."
 
-#: wp-includes/comment.php:3295
+#: wp-includes/comment.php:3300
 msgid "Sorry, comments are not allowed for this item."
 msgstr "Przykro nam, tego elementu nie można komentować."
 
@@ -8748,7 +8748,7 @@ msgstr "Nie można utworzyć już istniejącego komentarza."
 #: wp-includes/class-wp-xmlrpc-server.php:3852
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:446
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:468
-#: wp-includes/comment.php:3347
+#: wp-includes/comment.php:3352
 msgid "Sorry, you must be logged in to comment."
 msgstr "Przepraszamy, aby komentować trzeba być zalogowanym."
 
@@ -10043,7 +10043,7 @@ msgctxt "genitive"
 msgid "January"
 msgstr "stycznia"
 
-#: wp-includes/embed.php:1143
+#: wp-includes/embed.php:1156
 msgid "Sharing options"
 msgstr "Opcje udostępniania"
 
@@ -10105,7 +10105,7 @@ msgid "Oops! That embed can&#8217;t be found."
 msgstr "Ups! Ten osadzony element nie został znaleziony."
 
 #. translators: %s: Post title.
-#: wp-includes/embed.php:943 wp-includes/post-template.php:296
+#: wp-includes/embed.php:956 wp-includes/post-template.php:296
 msgid "Continue reading %s"
 msgstr "Czytaj dalej %s"
 
@@ -10476,32 +10476,32 @@ msgstr "Wpisy opublikowane dnia %s"
 msgid "Use the %s filter instead."
 msgstr "Zamiast tego użyj filtru %s."
 
-#: wp-includes/embed.php:1170
+#: wp-includes/embed.php:1183
 msgid "Close sharing dialog"
 msgstr "Zamknij okienko udostępniania"
 
-#: wp-includes/embed.php:1165
+#: wp-includes/embed.php:1178
 msgid "Copy and paste this code into your site to embed"
 msgstr "Skopiuj i wklej ten kod na swoją witrynę, aby osadzić element"
 
-#: wp-includes/embed.php:1158
+#: wp-includes/embed.php:1171
 msgid "Copy and paste this URL into your WordPress site to embed"
 msgstr "Skopiuj i wklej ten adres na swoją witrynę WordPressa, aby osadzić element"
 
-#: wp-includes/embed.php:1151
+#: wp-includes/embed.php:1164
 msgid "HTML Embed"
 msgstr "Osadzanie HTML"
 
-#: wp-includes/embed.php:1148
+#: wp-includes/embed.php:1161
 msgid "WordPress Embed"
 msgstr "Osadzanie elementów WordPressa"
 
-#: wp-includes/embed.php:1126
+#: wp-includes/embed.php:1139
 msgid "Open sharing dialog"
 msgstr "Otwórz okienko udostępniania"
 
 #. translators: %s: Number of comments.
-#: wp-includes/embed.php:1102
+#: wp-includes/embed.php:1115
 msgid "%s <span class=\"screen-reader-text\">Comment</span>"
 msgid_plural "%s <span class=\"screen-reader-text\">Comments</span>"
 msgstr[0] "%s <span class=\"screen-reader-text\">Komentarz</span>"
@@ -11969,7 +11969,7 @@ msgstr "Widgety są niezależnymi obszarami z treścią, które mogą zostać um
 msgid "You are customizing %s"
 msgstr "Personalizujesz %s"
 
-#: wp-includes/comment.php:3396
+#: wp-includes/comment.php:3401
 msgid "<strong>Error</strong>: The comment could not be saved. Please try again later."
 msgstr "<strong>Błąd</strong>: Komentarz nie mógł zostać zapisany. Spróbuj ponownie później."
 
@@ -13183,8 +13183,8 @@ msgid "The login page will open in a new tab. After logging in you can close it 
 msgstr "Strona logowania zostanie otwarte w nowym oknie. Po zalogowaniu można ją zamknąć i wrócić tutaj."
 
 #. translators: %s: Comment author link.
-#: wp-includes/class-walker-comment.php:287
-#: wp-includes/class-walker-comment.php:377
+#: wp-includes/class-walker-comment.php:326
+#: wp-includes/class-walker-comment.php:423
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"says\">pisze:</span>"
 
@@ -14180,15 +14180,15 @@ msgstr "Plik „%s” przekracza maksymalny dopuszczalny rozmiar plików wysyła
 msgid "Feedback"
 msgstr "Uwagi"
 
-#: wp-includes/comment.php:3355
+#: wp-includes/comment.php:3360
 msgid "<strong>Error</strong>: Please fill the required fields (name, email)."
 msgstr "<strong>Błąd</strong>: Proszę wypełnić wymagane pola (podpis, email)."
 
-#: wp-includes/comment.php:3357
+#: wp-includes/comment.php:3362
 msgid "<strong>Error</strong>: Please enter a valid email address."
 msgstr "<strong>Błąd</strong>: Proszę podać prawidłowy adres email."
 
-#: wp-includes/comment.php:3382
+#: wp-includes/comment.php:3387
 msgid "<strong>Error</strong>: Please type a comment."
 msgstr "<strong>Błąd</strong>: Proszę wpisać komentarz."
 
@@ -14340,7 +14340,7 @@ msgstr "Zobacz wpisy"
 msgid "Link to %s"
 msgstr "Odnośnik do %s"
 
-#: wp-includes/class-walker-comment.php:242
+#: wp-includes/class-walker-comment.php:250
 msgid "Pingback:"
 msgstr "Pingback:"
 
@@ -17056,7 +17056,7 @@ msgstr "Co godzinę"
 msgid "This argument has changed to an array to match the behavior of the other cron functions."
 msgstr "Przyjmowanym argumentem jest teraz tablica, aby ta funkcja zachowywała się tak jak pozostałe związane z cronem."
 
-#: wp-includes/comment.php:2279
+#: wp-includes/comment.php:2284
 msgid "Could not update comment status"
 msgstr "Nie można było zaktualizować stanu komentarza"
 
@@ -17139,18 +17139,18 @@ msgstr "Meta"
 msgid "Search results for %s"
 msgstr "Wyniki wyszukiwania dla %s"
 
-#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:343
 msgid "(Edit)"
 msgstr "(Edytuj)"
 
 #. translators: 1: Comment date, 2: Comment time.
-#: wp-includes/class-walker-comment.php:300
-#: wp-includes/class-walker-comment.php:388
+#: wp-includes/class-walker-comment.php:339
+#: wp-includes/class-walker-comment.php:434
 msgid "%1$s at %2$s"
 msgstr "%1$s o %2$s"
 
-#: wp-includes/class-walker-comment.php:269
-#: wp-includes/class-walker-comment.php:359
+#: wp-includes/class-walker-comment.php:302
+#: wp-includes/class-walker-comment.php:400
 msgid "Your comment is awaiting moderation."
 msgstr "Twój komentarz oczekuje na moderację."
 
@@ -17227,7 +17227,7 @@ msgstr "Wszystkie"
 
 #: wp-includes/class-wp-xmlrpc-server.php:3875
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:549
-#: wp-includes/comment.php:3268
+#: wp-includes/comment.php:3273
 msgid "Sorry, comments are closed for this item."
 msgstr "Przepraszamy, tego artykułu nie można komentować."
 
@@ -17772,7 +17772,7 @@ msgid "Submit"
 msgstr "Wyślij"
 
 #. translators: Name of a comment's author after being anonymized.
-#: wp-includes/comment.php:3568 wp-includes/class-wp-theme.php:897
+#: wp-includes/comment.php:3573 wp-includes/class-wp-theme.php:897
 #: wp-includes/comment-template.php:32
 msgid "Anonymous"
 msgstr "Anonim"
@@ -17887,7 +17887,7 @@ msgstr "Zajawka"
 msgid "Publish"
 msgstr "Opublikuj"
 
-#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3497
+#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3502
 #: wp-includes/link-template.php:3047 wp-includes/link-template.php:3107
 msgid "Comments"
 msgstr "Komentarze"
@@ -17916,8 +17916,8 @@ msgid "%s ago"
 msgstr "%s temu"
 
 #: wp-includes/class-wp-editor.php:1388
-#: wp-includes/class-walker-comment.php:242
-#: wp-includes/class-walker-comment.php:392 wp-includes/js/dist/editor.js:12394
+#: wp-includes/class-walker-comment.php:250
+#: wp-includes/class-walker-comment.php:438 wp-includes/js/dist/editor.js:12394
 #: wp-includes/js/dist/block-editor.js:20123
 #: wp-includes/js/dist/block-editor.js:20742
 #: wp-includes/js/dist/block-editor.js:22523
@@ -18014,7 +18014,7 @@ msgstr "Twoje konto zostało aktywowane!"
 #: wp-activate.php:133 wp-includes/script-loader.php:1508
 #: wp-includes/script-loader.php:1509
 msgid "Activate"
-msgstr "Aktywuj"
+msgstr "Włącz"
 
 #: wp-activate.php:129
 msgid "Activation Key:"

@@ -32,7 +32,7 @@
     public function createDirectoryForUploadsWebp()
     {
       $path = apply_filters('webpc_uploads_webp', '');
-      if (is_writable(dirname($path))) mkdir($path);
+      if (!file_exists($path) && is_writable(dirname($path))) mkdir($path);
     }
 
     public function addDefaultOptions()

@@ -13,9 +13,8 @@
       (new Server())->setSettings();
 
       try {
-        if (!is_writable($path)) {
-          throw new \Exception(sprintf('File "%s" does not exist.', $path));
-        }
+        $status = (new Server())->checkIfFileExists($path);
+        if ($status !== true) throw new \Exception($status);
 
         $response = $this->createImage($path);
         if (!$response['success']) throw new \Exception($response['message']);

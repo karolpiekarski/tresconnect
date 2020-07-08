@@ -99,6 +99,16 @@
   &__textAddress {
     padding-bottom: 60px;
 
+    img {
+      width: 80%;
+    }
+
+    p {
+      span {
+        font-size: 2.2rem;
+      }
+    }
+
     @include rwd('large-tablet') {
       p {
         text-align: center;

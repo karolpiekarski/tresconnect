@@ -3,13 +3,13 @@
   /*
     Plugin Name: WebP Converter for Media
     Description: Speed up your website by serving WebP images instead of standard formats JPEG, PNG and GIF.
-    Version: 1.2.6
+    Version: 1.2.7
     Author: Mateusz Gbiorczyk
     Author URI: https://gbiorczyk.pl/
     Text Domain: webp-converter
   */
 
-  define('WEBPC_VERSION', '1.2.6');
+  define('WEBPC_VERSION', '1.2.7');
   define('WEBPC_FILE',    __FILE__);
   define('WEBPC_NAME',    plugin_basename(__FILE__));
   define('WEBPC_PATH',    plugin_dir_path(__FILE__));

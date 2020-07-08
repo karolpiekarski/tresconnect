@@ -32,6 +32,7 @@ This will be a profit both for your users who will not have to download so much 
 - **The plugin does not change image URLs, so there are no problems with saving the HTML code of website to the cache and time of its generation does not increase.** It does not matter if the image display as an `img` HTML tag or you use `background-image`. It works always!
 - The name of the loaded image does not contain the WebP extension. Only the source of the loaded file changes to a WebP file. As a result, you always have one URL to a file. Regardless of whether the browser supports WebP or not.
 - Image URLs are modified using the module `mod_rewrite` on the server, i.e. the same, and thanks to this we can use friendly links in WordPress. Additionally, the MIME type of the sent file is modified to `image/webp`.
+- When you try to save the image to disk *(e.g. by clicking Save as...)* the original image will be saved. WebP is only used for browser loading.
 - The final result is that your users download less than half of the data, and the website itself loads faster!
 
 #### WebP images are the future!
@@ -110,7 +111,7 @@ Send a screenshot from console if an error occurred while converting images. Of 
 
 **9.** Used Wordpress version.
 
-**10.** A list of all the plugins you use. Have you tried checking the plugin operation by turning off all others? If not, please try whenever possible.
+**10.** A list of all the plugins you use. Have you tried checking the plugin operation by turning off all others and activating the default theme? If not, please try whenever possible. **This is very important because other plugins or themes can cause problems. Therefore, we recommend disabling all necessary plugins and enabling the default theme.**
 
 Please remember to include the answers for all 10 questions by adding a thread. It is much easier and accelerate the solution of your problem.
 
@@ -125,6 +126,18 @@ The messages are designed to reduce the number of support requests that are repe
 When contacting the administrator, give him all the information available in the message. If you still cannot solve the problem, please contact us.
 
 We want to solve as many similar problems as possible automatically. This eliminates the need to wait for our response and you can try to solve the problem alone. This is very important for us.
+
+= Error while converting? =
+
+You can get several types of errors when converting. First of all, carefully read their content. For the most part, you can solve this problem yourself. Try to do this or contact the server administrator.
+
+If you get an error: `File "%s" does not exist. Please check file path.` means that the [file_exists()](https://www.php.net/manual/en/function.file-exists.php) function in PHP returned `false` using the file path given in the error message. Check this path and make sure it is correct.
+
+If you get an error: `File "%s" is unreadable. Please check file permissions.` means that the [is_readable()](https://www.php.net/manual/en/function.is-readable.php) function in PHP returned `false` using the file path given in the error message. Check the permissions for the file and the directory in which the file is located.
+
+If you get an error: `"%s" is not a valid image file.` means that the file is damaged in some way. Download the file to disk, save it again using any graphics program and add again to the page. If the error applies to individual images then you can ignore it - just the original images will load, not WebP.
+
+Remember that it happens that other plugins can cause problems with accessing files or the REST API. Please try to disable all other plugins and set the default theme to make sure that it is not one of them that causes these types of problems.
 
 = What are requirements of plugin? =
 
@@ -207,9 +220,9 @@ When checking the operation of the plugin, e.g. in Dev Tools, pay attention to t
 
 = Where are converted images stored? =
 
-All WebP images are stored in the `/wp-content/uploads-webpc/` directory. Inside the directory there is the same structure as in the original `uploads` directory. The files have original extensions in the name along with the new `.webp`.
+All WebP images are stored in the `/wp-content/uploads-webpc/` directory. Inside the directory there is the same structure as in the original `/wp-content` directory. The files have original extensions in the name along with the new `.webp`.
 
-In case the location of the original file is as follows: `/wp-content/uploads/2019/06/example.jpg` then its converted version will be in the following location: `/wp-content/uploads-webpc/2019/06/example.jpg.webp`.
+In case the location of the original file is as follows: `/wp-content/uploads/2019/06/example.jpg` then its converted version will be in the following location: `/wp-content/uploads-webpc/uploads/2019/06/example.jpg.webp`.
 
 Original images are not changed. If you remove plugins, only WebP files will be deleted. Your images are not changed in any way.
 
@@ -376,7 +389,7 @@ and add below code in this file:
 `server {`
 `  # ...
 
-  location ~ /wp-content/uploads/(?<path>.+)\.(?<ext>jpe?g|png|gif)$ {
+  location ~ /wp-content/(?<path>.+)\.(?<ext>jpe?g|png|gif)$ {
     if ($http_accept !~* "image/webp") {
       break;
     }
@@ -390,7 +403,7 @@ and add below code in this file:
 
 Yes, with one exception. In this mode it is not possible to automatically generate the contents of .htaccess files.
 
-Please manually paste the following code **at the beginning of .htaccess file** in the `/wp-content/uploads` directory:
+Please manually paste the following code **at the beginning of .htaccess file** in the `/wp-content` directory:
 
 `# BEGIN WebP Converter`
 `# ! --- DO NOT EDIT PREVIOUS LINE --- !`
@@ -441,6 +454,10 @@ This is all very important to us and allows us to do even better things for you!
 2. Screenshot when regenerating images
 
 == Changelog ==
+
+= 1.2.7 (2020-06-11) =
+* `[Changed]` Moving converted WebP files to `/uploads-webpc/uploads` directory from `/uploads-webpc` directory *(**required manual configuration change for Nginx and WordPress Multisite**)*
+* `[Changed]` Validation when converting images
 
 = 1.2.6 (2020-05-28) =
 * `[Fixed]` Removal of WebP files larger than original during upload

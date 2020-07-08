@@ -4,25 +4,26 @@
 
   class Paths
   {
-    private $pathSource = 'wp-content/uploads';
-    private $pathOutput = 'wp-content/uploads-webpc';
+    private $pathUploads = 'wp-content/uploads';
+    private $pathOutput  = 'wp-content/uploads-webpc';
 
     public function __construct()
     {
-      add_filter('webpc_uploads_path',   [$this, 'getSourcePath'], 0, 2);
-      add_filter('webpc_uploads_webp',   [$this, 'getOutputPath'], 0, 2);
-      add_filter('webpc_uploads_path',   [$this, 'parsePath'], 100, 2);
-      add_filter('webpc_uploads_webp',   [$this, 'parsePath'], 100, 2);
-      add_filter('webpc_uploads_prefix', [$this, 'getPrefixPath'], 0);
+      add_filter('webpc_uploads_path',   [$this, 'getUploadsPath'], 0,   2);
+      add_filter('webpc_uploads_webp',   [$this, 'getOutputPath'],  0,   2);
+      add_filter('webpc_uploads_path',   [$this, 'parsePath'],      100, 2);
+      add_filter('webpc_uploads_webp',   [$this, 'parsePath'],      100, 2);
+      add_filter('webpc_uploads_prefix', [$this, 'getPrefixPath'],  0);
+      add_filter('webpc_uploads_dir',    [$this, 'getUploadsDir'],  0);
     }
 
     /* ---
       Functions
     --- */
 
-    public function getSourcePath($value, $skipRoot = false)
+    public function getUploadsPath($value, $skipRoot = false)
     {
-      return $this->pathSource;
+      return $this->pathUploads;
     }
 
     public function getOutputPath($value, $skipRoot = false)
@@ -46,5 +47,17 @@
       $diffPath = sprintf('/%s/', $diffDir);
 
       return str_replace('//', '/', $diffPath);
+    }
+
+    public function getUploadsDir($value)
+    {
+      $uploadsDir = apply_filters('webpc_uploads_path', '');
+      $parentDir  = dirname(apply_filters('webpc_uploads_webp', ''));
+      if ((!$uploadsDir = realpath($uploadsDir)) || (!$parentDir = realpath($parentDir))) {
+        return $value;
+      }
+
+      $path = str_replace($parentDir, '', $uploadsDir);
+      return trim($path, '\/');
     }
   }

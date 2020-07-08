@@ -21,7 +21,7 @@
 
       $values = apply_filters('webpc_get_values', []);
       $rows   = [
-        $this->getModRewriteRules($values),
+        $this->getModRewriteRules($values, apply_filters('webpc_uploads_dir', '')),
       ];
 
       $content = $this->addCommentsToRules($rows);
@@ -45,13 +45,14 @@
       $this->saveRewritesInHtaccesss($path, $content);
     }
 
-    private function getModRewriteRules($settings)
+    private function getModRewriteRules($settings, $outputPath = null)
     {
       $content = '';
       if (!$settings['extensions']) return $content;
 
       $path  = apply_filters('webpc_uploads_prefix', '/');
       $path .= apply_filters('webpc_uploads_webp', '', true);
+      if ($outputPath !== null) $path .= '/' . $outputPath;
 
       $content .= '<IfModule mod_rewrite.c>' . PHP_EOL;
       $content .= '  RewriteEngine On' . PHP_EOL;

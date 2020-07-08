@@ -10,9 +10,12 @@
 
     public function getPath($path, $createDirectory = false)
     {
-      $pathSource = apply_filters('webpc_uploads_path', '', true);
-      $pathOutput = apply_filters('webpc_uploads_webp', '', true);
-      $newPath    = str_replace("/${pathSource}/", "/${pathOutput}/", $path) . '.webp';
+      $webpRoot    = apply_filters('webpc_uploads_webp', '');
+      $uploadsRoot = dirname($webpRoot);
+      $outputPath  = str_replace(realpath($uploadsRoot), '', realpath($path));
+      $outputPath  = trim($outputPath, '\/');
+
+      $newPath = sprintf('%s/%s.webp', $webpRoot, $outputPath);
       if (!$createDirectory) return $newPath;
 
       if (!$paths = $this->checkDirectories($newPath)) return $newPath;
