@@ -55,5 +55,10 @@
 
   &__text {
     padding-top: 20px;
+
+    p {
+      font-family: $f-Work_Sans;
+      font-size: 1.8rem;
+    }
   }
 }
