@@ -7,7 +7,7 @@
       <div class="whatCustomersSay__iconsWrapper">
         <div class="whatCustomersSay__icons">
           <?php foreach ($section['icon_link'] as $item) : ?>
-            <?php if ($item['link']['url']) : ?>
+            <?php if (isset($item['link']['url']) && !empty($item['link']['url'])) : ?>
               <div class="whatCustomersSay__iconWrapper">
                 <div class="whatCustomersSay__icon">
                   <a href="<?=$item['link']['url']?>"
