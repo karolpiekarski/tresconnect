@@ -6,6 +6,7 @@
   {
     public function __construct()
     {
+      add_action('webpc_rewrite_htaccess', [$this, 'addRewriteRulesToWpContent'],   10, 1);
       add_action('webpc_rewrite_htaccess', [$this, 'addRewriteRulesToUploads'],     10, 1);
       add_action('webpc_rewrite_htaccess', [$this, 'addRewriteRulesToUploadsWebp'], 10, 1);
     }
@@ -13,6 +14,21 @@
     /* ---
       Functions
     --- */
+
+    public function addRewriteRulesToWpContent($isActive)
+    {
+      $path = dirname(apply_filters('webpc_uploads_path', ''));
+      if (!$isActive) return $this->saveRewritesInHtaccesss($path);
+
+      $values = apply_filters('webpc_get_values', []);
+      $rows   = [
+        $this->getModRewriteRules($values),
+      ];
+
+      $content = $this->addCommentsToRules($rows);
+      $content = apply_filters('webpc_htaccess_rules', $content, $path . '/.htaccess');
+      $this->saveRewritesInHtaccesss($path, $content);
+    }
 
     public function addRewriteRulesToUploads($isActive)
     {
@@ -63,7 +79,7 @@
       }
       $content .= '</IfModule>';
 
-      $content = apply_filters('webpc_htaccess_mod_rewrite', $content);
+      $content = apply_filters('webpc_htaccess_mod_rewrite', $content, $path);
       return $content;
     }
 

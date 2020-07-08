@@ -29,7 +29,7 @@
       $metadata = wp_get_attachment_metadata($postId);
       if (!$metadata) return $list;
 
-      $extension = pathinfo($metadata['file'], PATHINFO_EXTENSION);
+      $extension = strtolower(pathinfo($metadata['file'], PATHINFO_EXTENSION));
       if (!isset($metadata['file'])
         || !in_array($extension, $this->settings['extensions'])) return $list;
 

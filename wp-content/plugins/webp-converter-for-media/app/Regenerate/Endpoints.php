@@ -30,8 +30,8 @@
           },
           'callback' => [$this, 'getPaths'],
           'args'     => [
-            'skip_converted' => [
-              'description'       => 'Option to skip converted images (set `1` to enable)',
+            'regenerate_force' => [
+              'description'       => 'Option to force all images to be converted again (set `1` to enable)',
               'required'          => false,
               'default'           => false,
               'sanitize_callback' => function($value, $request, $param) {
@@ -68,10 +68,10 @@
 
     public function getPaths($request)
     {
-      $params = $request->get_params();
-      if ($params['skip_converted']) new Skip();
+      $params     = $request->get_params();
+      $skipExists = (!$params['regenerate_force']) ? true : false;
 
-      $data = (new Paths())->getPaths();
+      $data = (new Paths())->getPaths($skipExists, 10);
       if ($data !== false) return new \WP_REST_Response($data, 200);
       else return new \WP_Error('webpc_rest_api_error', null, ['status' => 405]);
     }

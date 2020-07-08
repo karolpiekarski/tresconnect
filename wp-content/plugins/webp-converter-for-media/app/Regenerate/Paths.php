@@ -2,38 +2,26 @@
 
   namespace WebpConverter\Regenerate;
 
-  use WebpConverter\Media\Attachment;
-
   class Paths
   {
     /* ---
       Functions
     --- */
 
-    public function getPaths()
+    public function getPaths($skipExists = false, $chunkSize = null)
     {
-      $postIds = get_posts([
-        'post_type'      => 'attachment',
-        'post_mime_type' => 'image',
-        'post_status'    => 'any',
-        'posts_per_page' => -1,
-        'fields'         => 'ids',
-      ]);
+      $settings = apply_filters('webpc_get_values', []);
+      $dirs     = array_filter(array_map(function($dirName) {
+        return apply_filters('webpc_dir_path', '', $dirName);
+      }, $settings['dirs']));
 
-      $list = $this->getPathsByAttachments($postIds);
-      wp_send_json_success($list);
-    }
-
-    private function getPathsByAttachments($postIds)
-    {
       $list = [];
-      if (!$postIds) return $list;
-
-      $attachment = new Attachment();
-      foreach ($postIds as $postId) {
-        $paths = $attachment->getAttachmentPaths($postId);
-        if ($paths) $list[] = $paths;
+      foreach ($dirs as $dirPath) {
+        $paths = apply_filters('webpc_dir_files', [], $dirPath, $skipExists);
+        $list  = array_merge($list, $paths);
       }
-      return $list;
+
+      if ($chunkSize === null) return $list;
+      return array_chunk($list, $chunkSize);
     }
   }

@@ -5,11 +5,11 @@
 ?>
 <form method="post" action="<?= $path; ?>" class="webpPage">
   <div class="webpPage__inner">
-    <h1 class="webpPage__headline"><?= __('WebP Converter for Media', 'webp-converter'); ?></h1>
+    <h1 class="webpPage__headline"><?= __('WebP Converter for Media', 'webp-converter-for-media'); ?></h1>
     <ul class="webpPage__columns">
       <li class="webpPage__column webpPage__column--large">
         <?php if ($_POST) : ?>
-          <div class="webpPage__alert"><?= __('Changes were successfully saved!', 'webp-converter'); ?></div>
+          <div class="webpPage__alert"><?= __('Changes were successfully saved!', 'webp-converter-for-media'); ?></div>
         <?php endif; ?>
         <?php
           if (isset($_GET['action']) && ($_GET['action'] === 'server')) {

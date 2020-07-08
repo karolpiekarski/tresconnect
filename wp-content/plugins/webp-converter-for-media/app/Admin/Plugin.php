@@ -18,7 +18,7 @@
     public function addLinkToSettings($links)
     {
       array_unshift($links, sprintf(
-        __('%sSettings%s', 'webp-converter'),
+        __('%sSettings%s', 'webp-converter-for-media'),
         '<a href="' . menu_page_url('webpc_admin_page', false) . '">',
         '</a>'
       ));
@@ -28,7 +28,7 @@
     public function addLinkToDonate($links)
     {
       $links[] = sprintf(
-        __('%sProvide us a coffee%s', 'webp-converter'),
+        __('%sProvide us a coffee%s', 'webp-converter-for-media'),
         '<a href="https://ko-fi.com/gbiorczyk/" target="_blank">',
         '</a>'
       );

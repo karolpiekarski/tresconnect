@@ -19,7 +19,7 @@ export default class Regenerate
     this.errorsInner   = this.errors.querySelector('.webpLoader__errorsContentList');
     this.errorsMessage = this.errors.querySelector('.webpLoader__errorsContentMessage');
     this.success       = this.section.querySelector('.webpLoader__success');
-    this.skipOption    = this.section.querySelector('input[name="regenerate_skip"]');
+    this.inputOptions  = this.section.querySelectorAll('input[type="checkbox"]');
     this.button        = this.section.querySelector('.webpLoader__button');
     this.data = {
       count: 0,
@@ -63,9 +63,14 @@ export default class Regenerate
   {
     e.preventDefault();
     if (this.settings.isDisabled) return;
+
     this.settings.isDisabled = true;
-    this.skipOption.setAttribute('disabled', true);
     this.button.classList.add(this.classes.buttonDisabled);
+
+    const { length } = this.inputOptions;
+    for (let i = 0; i < length; i++) {
+      this.inputOptions[i].setAttribute('disabled', true);
+    }
 
     this.wrapper.removeAttribute('hidden');
     this.getImagesList();
@@ -75,18 +80,27 @@ export default class Regenerate
   {
     jQuery.ajax(this.settings.ajax.urlPaths, {
       type: 'POST',
-      data: {
-        skip_converted: this.skipOption.checked ? 1 : 0,
-      },
+      data: this.getDataForPathsRequest(),
     }).done((response) => {
-      this.data.items = response.data;
-      this.data.max   = response.data.length;
+      this.data.items = response;
+      this.data.max   = response.length;
       this.regenerateNextImages();
     }).fail(() => {
       this.progress.classList.add(this.classes.progressError);
       this.errorsMessage.removeAttribute('hidden');
       this.errors.removeAttribute('hidden');
     });
+  }
+
+  getDataForPathsRequest()
+  {
+    const options    = {};
+    const { length } = this.inputOptions;
+    for (let i = 0; i < length; i++) {
+      const name    = this.inputOptions[i].getAttribute('name');
+      options[name] = (this.inputOptions[i].checked) ? 1 : 0;
+    }
+    return options;
   }
 
   /* ---

@@ -4,10 +4,10 @@
     <div class="contactPage__wrapper">
       <div class="contactPage__textWrapper">
         <div class="contactPage__text">
-          <div class="contactPage__textHeader" data-aos="fade-up">
+          <div class="contactPage__textHeader">
             <?= $section['contact_data']['text'] ?>
           </div>
-          <div class="contactPage__textContacts" data-aos="fade-up">
+          <div class="contactPage__textContacts">
             <?php foreach ($section['contact_data']['icon_text'] as $item): ?>
               <div class="contactPage__textContact">
                 <div class="contactPage__textContactIcon">
@@ -48,10 +48,10 @@
           <div class="contactPage__formInner">
             <div class="contactPage__formSquare1"></div>
             <div class="contactPage__formSquare2"></div>
-            <div class="contactPage__formHeader" data-aos="fade-up">
+            <div class="contactPage__formHeader">
               <?= $section['form']['text'] ?>
             </div>
-            <div data-aos="fade-up">
+            <div>
               <?=do_shortcode($section['form']['shortcode_form'])?>
             </div>
           </div>

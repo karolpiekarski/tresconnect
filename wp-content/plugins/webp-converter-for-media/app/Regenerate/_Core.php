@@ -7,5 +7,6 @@
     public function __construct()
     {
       new Endpoints();
+      new Skip();
     }
   }

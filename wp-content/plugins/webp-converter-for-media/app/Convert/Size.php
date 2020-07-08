@@ -20,6 +20,10 @@
         || (!file_exists($webpPath) || !file_exists($originalPath))
         || (filesize($webpPath) < filesize($originalPath))) return;
 
+      error_log(sprintf(
+        'WebP Converter for Media (Information): Image `%s` converted to WebP is larger than original and has been deleted.',
+        $webpPath
+      ));
       unlink($webpPath);
     }
   }

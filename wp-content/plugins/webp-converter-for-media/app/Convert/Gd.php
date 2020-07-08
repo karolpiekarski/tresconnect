@@ -41,7 +41,7 @@
 
     private function createImage($path)
     {
-      $extension = pathinfo($path, PATHINFO_EXTENSION);
+      $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
       $methods   = apply_filters('webpc_gd_create_methods', [
         'imagecreatefromjpeg' => ['jpg', 'jpeg'],
         'imagecreatefrompng'  => ['png'],

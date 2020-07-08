@@ -22,6 +22,7 @@
       $methods = apply_filters('webpc_get_methods', []);
       $value   = get_option('webpc_settings', [
         'extensions' => ['jpg', 'jpeg', 'png'],
+        'dirs'       => ['uploads'],
         'method'     => ($methods) ? $methods[0] : '',
         'features'   => ['only_smaller', 'mod_expires'],
         'quality'    => 85,

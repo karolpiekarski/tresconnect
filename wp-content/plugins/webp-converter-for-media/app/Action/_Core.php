@@ -8,5 +8,7 @@
     {
       new Convert();
       new Delete();
+      new Dir();
+      new Regenerate();
     }
   }

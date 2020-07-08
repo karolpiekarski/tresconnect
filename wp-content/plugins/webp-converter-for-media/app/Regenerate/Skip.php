@@ -8,17 +8,18 @@
   {
     public function __construct()
     {
-      add_filter('webpc_attachment_paths', [$this, 'skipExistsImages']); 
+      add_filter('webpc_attachment_paths', [$this, 'skipExistsImages'], 10, 2); 
     }
 
     /* ---
       Functions
     --- */
 
-    public function skipExistsImages($paths)
+    public function skipExistsImages($paths, $skipExists = false)
     {
-      $directory = new Directory();
+      if (!$skipExists) return $paths;
 
+      $directory = new Directory();
       foreach ($paths as $key => $path) {
         $output = $directory->getPath($path, false);
         if (file_exists($output)) unset($paths[$key]);

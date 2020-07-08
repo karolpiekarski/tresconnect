@@ -11,6 +11,7 @@
     {
       add_action('webpc_convert_paths',      [$this, 'convertFilesByPaths']);
       add_action('webpc_convert_attachment', [$this, 'convertFilesByAttachment']);
+      add_action('webpc_convert_dir',        [$this, 'convertFilesByDirectory'], 10, 2);
     }
 
     /* ---
@@ -26,7 +27,8 @@
       if (!isset($convert)) return false;
 
       foreach ($paths as $path) {
-        if (!in_array(pathinfo($path, PATHINFO_EXTENSION), $settings['extensions'])) continue;
+        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+        if (!in_array($extension, $settings['extensions'])) continue;
 
         $response = $convert->convertImage($path, $settings['quality']);
         if (!$response['success']) $this->addErrorToLog($response['message']);
@@ -39,10 +41,16 @@
       do_action('webpc_convert_paths', $paths);
     }
 
+    public function convertFilesByDirectory($dirPath, $skipExists = true)
+    {
+      $paths = apply_filters('webpc_dir_files', [], $dirPath, $skipExists);
+      do_action('webpc_convert_paths', $paths);
+    }
+
     private function addErrorToLog($message)
     {
       error_log(sprintf(
-        'WebP Converter: %s',
+        'WebP Converter for Media (Error): %s',
         $message
       ));
     }

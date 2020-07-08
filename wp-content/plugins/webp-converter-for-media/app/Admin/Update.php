@@ -35,11 +35,14 @@
     {
       $settings = apply_filters('webpc_get_values', []);
 
-      if (version_compare($version, '1.1.2', '<=')) {
+      if (version_compare($version, '1.1.2', '<=') && !in_array('only_smaller', $settings['features'])) {
         $settings['features'][] = 'only_smaller';
       }
 
-      $settings['features'] = array_unique($settings['features']);
+      if (version_compare($version, '1.2.7', '<=') && !isset($settings['dirs'])) {
+        $settings['dirs'] = ['uploads'];
+      }
+
       return $settings;
     }
 

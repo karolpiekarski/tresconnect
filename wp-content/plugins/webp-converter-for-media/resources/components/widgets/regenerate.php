@@ -4,18 +4,18 @@
 ?>
 <div class="webpPage__widget">
   <h3 class="webpPage__widgetTitle">
-    <?= __('Regenerate images', 'webp-converter'); ?>
+    <?= __('Regenerate images', 'webp-converter-for-media'); ?>
   </h3>
   <div class="webpLoader webpContent"
     data-api-paths="<?= $apiPaths; ?>"
     data-api-regenerate="<?= $apiRegenerate; ?>"
-    data-api-error-message="<?= __('An unknown error occurred while converting the images: %s', 'webp-converter'); ?>">
+    data-api-error-message="<?= __('An unknown error occurred while converting the images: %s', 'webp-converter-for-media'); ?>">
     <div class="webpPage__widgetRow">
       <p>
-        <?= __('Convert all existing images with just one click! This tool uses the WordPress REST API by downloading addresses of all images and converting all files gradually. This is a process that may take a few or more than ten minutes depending on the number of files. During this process, please do not close your browser window.', 'webp-converter'); ?>
+        <?= __('Convert all existing images with just one click! This tool uses the WordPress REST API by downloading addresses of all images and converting all files gradually. This is a process that may take a few or more than ten minutes depending on the number of files. During this process, please do not close your browser window.', 'webp-converter-for-media'); ?>
       </p>
       <p>
-        <?= __('This operation should be performed only once after installing the plugin. New images will be converted automatically.', 'webp-converter'); ?>
+        <?= __('This operation should be performed only once after installing the plugin. New images from the Media Library will be converted automatically. For other images, e.g. from the /themes or /uploads directory that are not from the Media Library, you must start manual conversion after adding new images.', 'webp-converter-for-media'); ?>
       </p>
       <div class="webpLoader__status" hidden>
         <div class="webpLoader__bar">
@@ -24,20 +24,20 @@
           </div>
           <div class="webpLoader__size">
             <?= sprintf(
-              __('Saving the weight of your images: %s', 'webp-converter'),
+              __('Saving the weight of your images: %s', 'webp-converter-for-media'),
               '<span class="webpLoader__sizeProgress">0 kB</span>'
             ); ?>
           </div>
         </div>
         <div class="webpLoader__success" hidden>
-          <?= __('The process was completed successfully. Your images have been converted!', 'webp-converter'); ?>
+          <?= __('The process was completed successfully. Your images have been converted!', 'webp-converter-for-media'); ?>
         </div>
         <div class="webpLoader__errors" hidden>
-          <div class="webpLoader__errorsTitle"><?= __('List of errors', 'webp-converter'); ?></div>
+          <div class="webpLoader__errorsTitle"><?= __('List of errors', 'webp-converter-for-media'); ?></div>
           <div class="webpLoader__errorsContent">
             <div class="webpLoader__errorsContentList"></div>
             <div class="webpLoader__errorsContentMessage" hidden>
-              <?= __('An error occurred while connecting to REST API. Please try again.', 'webp-converter'); ?>
+              <?= __('An error occurred while connecting to REST API. Please try again.', 'webp-converter-for-media'); ?>
             </div>
           </div>
         </div>
@@ -47,13 +47,13 @@
       <table class="webpPage__widgetTable">
         <tr>
           <td>
-            <input type="checkbox" name="regenerate_skip" value="1"
-              id="webpc-regenerate-skip" class="webpPage__checkbox">
-            <label for="webpc-regenerate-skip"></label>
+            <input type="checkbox" name="regenerate_force" value="1"
+              id="webpc-regenerate-force" class="webpPage__checkbox">
+            <label for="webpc-regenerate-force"></label>
           </td>
           <td>
-            <label for="webpc-regenerate-skip" class="webpPage__checkboxLabel">
-              <?= __('Skip converted images', 'webp-converter'); ?>
+            <label for="webpc-regenerate-force" class="webpPage__checkboxLabel">
+              <?= __('Force convert all images again', 'webp-converter-for-media'); ?>
             </label>
           </td>
         </tr>
@@ -61,7 +61,7 @@
       <button type="button" target="_blank"
         class="webpLoader__button webpButton webpButton--green"
         <?= (apply_filters('webpc_server_errors', [])) ? 'disabled' : ''; ?>>
-        <?= __('Regenerate All', 'webp-converter'); ?>
+        <?= __('Regenerate All', 'webp-converter-for-media'); ?>
       </button>
     </div>
   </div>

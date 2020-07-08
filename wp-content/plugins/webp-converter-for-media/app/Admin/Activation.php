@@ -4,6 +4,8 @@
 
   class Activation
   {
+    private $phpVersion = '7.0.0';
+
     public function __construct()
     {
       register_activation_hook(WEBPC_FILE, [$this, 'disablePluginForOldPhp']);
@@ -18,14 +20,14 @@
 
     public function disablePluginForOldPhp()
     {
-      if (version_compare(PHP_VERSION, '5.6.12', '>=')) return;
+      if (version_compare(PHP_VERSION, $this->phpVersion, '>=')) return;
 
       deactivate_plugins(basename(WEBPC_FILE));
       wp_die(sprintf(
-        __('%sWebP Converter for Media%s plugin requires a minimum PHP %s version. Sorry about that!', 'webp-converter'),
+        __('%sWebP Converter for Media%s plugin requires a minimum PHP %s version. Sorry about that!', 'webp-converter-for-media'),
         '<strong>',
         '</strong>',
-        $this->version
+        $this->phpVersion
       ));
     }
 

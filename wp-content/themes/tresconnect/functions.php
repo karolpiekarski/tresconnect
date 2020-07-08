@@ -14,7 +14,7 @@ $management = new SiteManager\SiteManager();
 
 add_filter('wpcf7_validate_configuration', '__return_false');
 
-add_filter('use_block_editor_for_post_type', '__return_false', 10);
+// add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 
 add_action('wp_enqueue_scripts', 'remove_block_css', 100);
@@ -27,12 +27,13 @@ function remove_block_css()
   wp_dequeue_style('storefront-gutenberg-blocks'); // Storefront theme
 }
 
-if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
-function my_jquery_enqueue()
-{
-  wp_deregister_script('jquery');
-}
-//
+// if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+// function my_jquery_enqueue()
+// {
+//   wp_deregister_script('jquery');
+// }
+
+
 //function custom_post_type()
 //{
 //

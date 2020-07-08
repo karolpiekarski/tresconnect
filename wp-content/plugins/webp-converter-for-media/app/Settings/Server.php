@@ -19,6 +19,7 @@
     {
       ob_start();
 
+      echo $this->getFiltersInfo();
       foreach ($this->extensions as $extension) {
         $this->getExtensionInfo($extension);
       }
@@ -41,5 +42,82 @@
         $ext = new \ReflectionExtension($extension);
         $ext->info();
       endif;
+    }
+
+    private function getFiltersInfo()
+    {
+      ob_start();
+
+      ?>
+      <h4>apply_filters</h4>
+      <table>
+        <tbody>
+          <tr>
+            <td class="e">webpc_get_values</td>
+            <td class="v">
+              <?= json_encode(apply_filters('webpc_get_values', [], null)); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_get_methods</td>
+            <td class="v">
+              <?= implode(' | ', apply_filters('webpc_get_methods', [])); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_uploads_root</td>
+            <td class="v">
+              <?= apply_filters('webpc_uploads_root', ABSPATH); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_uploads_prefix</td>
+            <td class="v">
+              <?= apply_filters('webpc_uploads_prefix', '/'); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_uploads_path</td>
+            <td class="v">
+              <?= apply_filters('webpc_uploads_path', '', false); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_uploads_webp</td>
+            <td class="v">
+              <?= apply_filters('webpc_uploads_webp', '', false); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_dir_path <em>(plugins)</em></td>
+            <td class="v">
+              <?= apply_filters('webpc_dir_path', '', 'plugins'); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_dir_path <em>(themes)</em></td>
+            <td class="v">
+              <?= apply_filters('webpc_dir_path', '', 'themes'); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_dir_path <em>(uploads)</em></td>
+            <td class="v">
+              <?= apply_filters('webpc_dir_path', '', 'uploads'); ?>
+            </td>
+          </tr>
+          <tr>
+            <td class="e">webpc_dir_excluded</td>
+            <td class="v">
+              <?= implode(' | ', apply_filters('webpc_dir_excluded', [])); ?>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <?php
+
+      $content = ob_get_contents();
+      ob_end_clean();
+      return $content;
     }
   }

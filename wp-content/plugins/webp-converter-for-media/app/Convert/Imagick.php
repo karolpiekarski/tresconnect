@@ -37,7 +37,7 @@
 
     private function createImage($path)
     {
-      $extension = pathinfo($path, PATHINFO_EXTENSION);
+      $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
       try {
         if (!extension_loaded('imagick') || !class_exists('Imagick')) {
           throw new \Exception('Server configuration: Imagick module is not available with this PHP installation.');
