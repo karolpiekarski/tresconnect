@@ -103,7 +103,7 @@ class _Core
     $this->guttenber = new Gutenberg($core, $this->settings['gutenberg']);
     $this->comments = new Comments($core, $this->settings['comments']);
     $this->acf = new ACF($core, $this->settings['acf']);
-    $this->security = new Security($core, $this->settings['security']);
+    // $this->security = new Security($core, $this->settings['security']);
     $this->tinymce = new TinyMCE($core, $this->settings['tinymce']);
     $this->css = new CSS($core, $this->settings['css']);
     $this->js = new JS($core, $this->settings['js']);
