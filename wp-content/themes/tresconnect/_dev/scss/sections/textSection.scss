@@ -1,0 +1,7 @@
+.textSection {
+    padding: 50px 0;
+
+    @include rwd('tablet') {
+        padding: 25px 0;
+    }
+}
