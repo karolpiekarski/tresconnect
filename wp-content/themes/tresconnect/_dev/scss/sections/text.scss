@@ -1,0 +1,15 @@
+.textSection {
+    a {
+        border-bottom: 1px solid $c-blue-01;
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 18px;
+    }
+      
+    ol {
+        list-style-type: decimal;
+        padding-left: 18px;
+    }
+}
