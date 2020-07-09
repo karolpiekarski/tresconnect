@@ -15,6 +15,10 @@ class ComposerStaticInitd131b9c923faadfb3f9760fc61d9df73
         array (
             'SiteManager\\' => 12,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -25,6 +29,10 @@ class ComposerStaticInitd131b9c923faadfb3f9760fc61d9df73
         'SiteManager\\' => 
         array (
             0 => __DIR__ . '/../..' . '/functions/SiteManager',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
     );
 

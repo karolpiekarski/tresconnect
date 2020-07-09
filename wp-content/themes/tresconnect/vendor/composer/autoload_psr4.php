@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'WPAdvanced\\' => array($baseDir . '/functions/WPAdvanced'),
     'SiteManager\\' => array($baseDir . '/functions/SiteManager'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
 );
