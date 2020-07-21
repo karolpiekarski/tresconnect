@@ -16,8 +16,14 @@
       $name = $tag['name'];
       $value = $_POST[$name] ;
       $excludedPhrases = get_field('cf7_text_excluded_phrases', 'option');
+
+      $excludedPhrases = get_field('cf7_text_excluded_phrases', 'option');
+      $excludedPhrasesArr = explode(',', $excludedPhrases);
+      $excludedPhrasesNewArr = array_map(function($text){
+        return (string) trim($text);
+      }, $excludedPhrasesArr);
     
-      if ( in_array($value, explode(',', $excludedPhrases))) {
+      if ( in_array($value, $excludedPhrasesNewArr) ) {
         $result->invalidate( $tag, get_field('cf7_text_message_excluded_phrases', 'option') );
       }
       
