@@ -181,3 +181,12 @@
 [08-Jul-2020 15:30:32 UTC] PHP  25. WP_Hook->apply_filters() /home/vagrant/code/tresconnect/cms/wp-includes/class-wp-hook.php:311
 [08-Jul-2020 15:30:32 UTC] PHP  26. acf_field_wysiwyg->acf_enqueue_uploader() /home/vagrant/code/tresconnect/cms/wp-includes/class-wp-hook.php:287
 [08-Jul-2020 15:30:32 UTC] PHP  27. implode() /home/vagrant/code/tresconnect/cms/wp-content/plugins/advanced-custom-fields-pro/includes/fields/class-acf-field-wysiwyg.php:191
+[08-Jul-2020 16:01:34 UTC] PHP Warning:  Wystąpił nieoczekiwany błąd. Coś może być nie tak z WordPress.org lub konfiguracją Twojego serwera. Jeśli problem będzie się powtarzał, spróbuj znaleźć pomoc na <a href="https://pl.wordpress.org/support/">forum pomocy technicznej</a>. (WordPress nie mógł stworzyć bezpiecznego połączenia z WordPress.org. Skontaktuj się z administratorem swojego serwera). in /home/vagrant/code/tresconnect/cms/wp-includes/update.php on line 388
+[08-Jul-2020 16:01:34 UTC] PHP Stack trace:
+[08-Jul-2020 16:01:34 UTC] PHP   1. {main}() /home/vagrant/code/tresconnect/cms/wp-admin/plugins.php:0
+[08-Jul-2020 16:01:34 UTC] PHP   2. require_once() /home/vagrant/code/tresconnect/cms/wp-admin/plugins.php:10
+[08-Jul-2020 16:01:34 UTC] PHP   3. do_action() /home/vagrant/code/tresconnect/cms/wp-admin/admin.php:367
+[08-Jul-2020 16:01:34 UTC] PHP   4. WP_Hook->do_action() /home/vagrant/code/tresconnect/cms/wp-includes/plugin.php:478
+[08-Jul-2020 16:01:34 UTC] PHP   5. WP_Hook->apply_filters() /home/vagrant/code/tresconnect/cms/wp-includes/class-wp-hook.php:311
+[08-Jul-2020 16:01:34 UTC] PHP   6. wp_update_plugins() /home/vagrant/code/tresconnect/cms/wp-includes/class-wp-hook.php:287
+[08-Jul-2020 16:01:34 UTC] PHP   7. trigger_error() /home/vagrant/code/tresconnect/cms/wp-includes/update.php:388
