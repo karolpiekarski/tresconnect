@@ -2,7 +2,7 @@
 
   namespace WebpConverter\Regenerate;
 
-  use WebpConverter\Convert as ConvertMethod;
+  use WebpConverter\Method;
 
   class Regenerate
   {
@@ -17,12 +17,12 @@
       $sizeBefore = 0;
       $sizeAfter  = 0;
 
-      if ($settings['method'] === 'gd') $convert = new ConvertMethod\Gd();
-      else if ($settings['method'] === 'imagick') $convert = new ConvertMethod\Imagick();
+      if ($settings['method'] === 'gd') $convert = new Method\Gd();
+      else if ($settings['method'] === 'imagick') $convert = new Method\Imagick();
       if (!isset($convert)) return false;
 
       foreach ($paths as $path) {
-        $response = $convert->convertImage($path, $settings['quality']);
+        $response = $convert->convertImage($path, $settings);
 
         if ($response['success'] !== true) {
           $errors[] = $response['message'];

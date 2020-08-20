@@ -1,0 +1,78 @@
+{
+    "key": "group_5f16a753a7c59",
+    "title": "Zarządzanie: Ustawienia",
+    "fields": [
+        {
+            "key": "field_5f16a76075647",
+            "label": "Dostosowana walidacja",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f16a9b1901c9",
+            "label": "Wykluczone słowa",
+            "name": "cf7_text_excluded_phrases",
+            "type": "textarea",
+            "instructions": "Proszę oddzielić je od siebie przecinkiem",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": ""
+        },
+        {
+            "key": "field_5f16a77675648",
+            "label": "Komunikat odnośnie wykluczonych słów",
+            "name": "cf7_text_message_excluded_phrases",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "options-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1597841028
+}

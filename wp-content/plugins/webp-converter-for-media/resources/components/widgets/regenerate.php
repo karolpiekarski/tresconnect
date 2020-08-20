@@ -31,6 +31,12 @@
         </div>
         <div class="webpLoader__success" hidden>
           <?= __('The process was completed successfully. Your images have been converted!', 'webp-converter-for-media'); ?>
+          <br>
+          <?= sprintf(
+            __('Do you want to know how a plugin works and how to check if it is working properly? Read our %splugin FAQ%s.', 'webp-converter-for-media'),
+            '<a href="https://wordpress.org/plugins/webp-converter-for-media/#faq" target="_blank">',
+            '</a>'
+          ); ?>
         </div>
         <div class="webpLoader__errors" hidden>
           <div class="webpLoader__errorsTitle"><?= __('List of errors', 'webp-converter-for-media'); ?></div>

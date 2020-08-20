@@ -2,7 +2,7 @@
 
   namespace WebpConverter\Action;
 
-  use WebpConverter\Convert as ConvertMethod;
+  use WebpConverter\Method;
   use WebpConverter\Media\Attachment;
 
   class Convert
@@ -22,16 +22,14 @@
     {
       $settings = apply_filters('webpc_get_values', []);
 
-      if ($settings['method'] === 'gd') $convert = new ConvertMethod\Gd();
-      else if ($settings['method'] === 'imagick') $convert = new ConvertMethod\Imagick();
+      if ($settings['method'] === 'gd') $convert = new Method\Gd();
+      else if ($settings['method'] === 'imagick') $convert = new Method\Imagick();
       if (!isset($convert)) return false;
 
       foreach ($paths as $path) {
         $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
         if (!in_array($extension, $settings['extensions'])) continue;
-
-        $response = $convert->convertImage($path, $settings['quality']);
-        if (!$response['success']) $this->addErrorToLog($response['message']);
+        $convert->convertImage($path, $settings);
       }
     }
 
@@ -45,13 +43,5 @@
     {
       $paths = apply_filters('webpc_dir_files', [], $dirPath, $skipExists);
       do_action('webpc_convert_paths', $paths);
-    }
-
-    private function addErrorToLog($message)
-    {
-      error_log(sprintf(
-        'WebP Converter for Media (Error): %s',
-        $message
-      ));
     }
   }

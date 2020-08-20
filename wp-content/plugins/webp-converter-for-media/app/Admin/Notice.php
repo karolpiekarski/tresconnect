@@ -2,46 +2,55 @@
 
   namespace WebpConverter\Admin;
 
+  use WebpConverter\Plugin\Activation;
+
   class Notice
   {
-    private $optionKey = 'webpc_notice_hidden';
+    const NOTICE_THANKS_OPTION = 'webpc_notice_hidden';
 
     public function __construct()
     {
-      add_filter('webpc_notice_url',     [$this, 'showNoticeUrl']); 
-      add_action('admin_notices',        [$this, 'showAdminNotice']);
-      add_action('wp_ajax_webpc_notice', [$this, 'hideAdminNotice']);
+      add_action('admin_init',           [$this, 'showWelcomeNotice']);
+      add_action('admin_init',           [$this, 'showThanksNotice']);
+      add_action('wp_ajax_webpc_notice', [$this, 'hideThanksNotice']);
     }
 
     /* ---
       Functions
     --- */
 
-    public function showNoticeUrl()
+    public function showWelcomeNotice()
     {
-      $url = admin_url('admin-ajax.php?action=webpc_notice');
-      return $url;
+      if (get_option(Activation::NEW_INSTALLATION_OPTION) !== '1') return;
+
+      new Assets();
+      add_action('admin_notices', ['WebpConverter\Admin\Notice', 'loadWelcomeNotice']);
     }
 
-    public function showAdminNotice()
+    public static function loadWelcomeNotice()
+    {
+      require_once WEBPC_PATH . 'resources/components/notices/welcome.php';
+    }
+
+    public function showThanksNotice()
     {
       if (($_SERVER['PHP_SELF'] !== '/wp-admin/index.php') ||
-        (get_option($this->optionKey, 0) >= time())) return;
+        (get_option(self::NOTICE_THANKS_OPTION, 0) >= time())) return;
 
+      new Assets();
+      add_action('admin_notices', [$this, 'loadThanksNotice']);
+    }
+
+    public function loadThanksNotice()
+    {
       require_once WEBPC_PATH . 'resources/components/notices/thanks.php';
     }
 
-    public function hideAdminNotice()
+    public function hideThanksNotice()
     {
       $isPermanent = isset($_POST['is_permanently']) && $_POST['is_permanently'];
       $expires     = strtotime($isPermanent ? '+10 years' : '+ 1 month');
 
-      $this->saveOption($expires);
-    }
-
-    public function saveOption($value)
-    {
-      if (get_option($this->optionKey, false) !== false) update_option($this->optionKey, $value);
-      else add_option($this->optionKey, $value);
+      update_option(self::NOTICE_THANKS_OPTION, $expires);
     }
   }

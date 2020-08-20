@@ -32,7 +32,6 @@
 
   &__iconsWrapper {
     margin: 0 auto;
-    max-width: 742px;
   }
 
   &__icons {
@@ -44,8 +43,8 @@
 
   &__iconWrapper {
     padding: 8px;
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 25%;
+    max-width: 25%;
 
     @include rwd('tablet') {
       flex: 0 0 100%;
@@ -57,6 +56,7 @@
     height: 168px;
     border: solid 1px rgba(0, 161, 154, 0.5);
     background-color: rgba(255, 255, 255, 0.75);
+    position: relative;
 
     a {
       display: block;
@@ -64,7 +64,19 @@
 
     &--img {
       width: 100%;
-      padding: 40px 70px;
+      padding: 0 50px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: auto;
+
+      @include rwd('tablet') {
+        padding: 20px 150px;
+      }
+
+      @include rwd('large-phone') {
+        padding: 0 50px;
+      }
     }
   }
 

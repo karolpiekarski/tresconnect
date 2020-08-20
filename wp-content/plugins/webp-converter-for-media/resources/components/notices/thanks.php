@@ -1,4 +1,4 @@
-<div class="notice notice-success is-dismissible" data-notice="webp-converter" data-url="<?= apply_filters('webpc_notice_url', ''); ?>">
+<div class="notice notice-success is-dismissible" data-notice="webp-converter" data-url="<?= admin_url('admin-ajax.php'); ?>">
   <div class="webpContent webpContent--notice">
     <h4>
       <?= __('Thank you for using our plugin WebP Converter for Media!', 'webp-converter-for-media'); ?>

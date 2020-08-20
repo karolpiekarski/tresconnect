@@ -2,8 +2,13 @@
 
   namespace WebpConverter\Settings;
 
+  use WebpConverter\Action\Cron;
+  use WebpConverter\Media\Htaccess;
+
   class Save
   {
+    const SETTINGS_OPTION = 'webpc_settings';
+
     public function __construct()
     {
       $this->saveConfig();
@@ -19,8 +24,11 @@
         || !wp_verify_nonce($_REQUEST['_wpnonce'], 'webpc-save')) return;
 
       $values = $this->getValues();
-      $this->saveOption('webpc_settings', $values);
-      do_action('webpc_rewrite_htaccess', true);
+      update_option(self::SETTINGS_OPTION, $values);
+      $settings = apply_filters('webpc_get_values', [], true);
+
+      do_action(Htaccess::ACTION_NAME, true);
+      wp_clear_scheduled_hook(Cron::CRON_ACTION);
     }
 
     private function getValues()
@@ -29,24 +37,18 @@
       $values  = [];
       foreach ($options as $key => $option) {
         $name          = $option['name'];
-        $values[$name] = isset($_POST[$name]) ? $_POST[$name] : (($option['type'] === 'checkbox') ? [] : null);
+        $values[$name] = (isset($_POST[$name]))
+          ? $this->setValuesForOption($_POST[$name], $option['values'])
+          : (($option['type'] === 'checkbox') ? [] : null);
       }
-      $values = $this->sanitizeValues($values);
+
       return $values;
     }
 
-    private function sanitizeValues($values)
+    private function setValuesForOption($value, $options)
     {
-      foreach ($values as $index => $value) {
-        if (is_array($value)) $values[$index] = array_map('sanitize_text_field', $value);
-        else $values[$index] = sanitize_text_field($value);
-      }
-      return $values;
-    }
-
-    private function saveOption($key, $value)
-    {
-      if (get_option($key, false) !== false) update_option($key, $value);
-      else add_option($key, $value);
+      $values = array_keys($options);
+      if (is_array($value)) return array_intersect($value, $values);
+      else return (in_array($value, $values)) ? $value : null;
     }
   }

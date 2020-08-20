@@ -1,9 +1,9 @@
 === WebP Converter for Media ===
 Contributors: mateuszgbiorczyk
 Donate link: https://ko-fi.com/gbiorczyk/
-Tags: webp, images, performance, compress, optimize
+Tags: convert webp, webp, optimize images, images, webp converter, performance, optimisation
 Requires at least: 5.0
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 7.0
 Stable tag: trunk
 License: GPLv2 or later
@@ -71,16 +71,6 @@ That's all! Your website is already loading faster!
 
 Please always adding your thread, **read all other questions in the FAQ of plugin and other threads in support forum first**. Perhaps someone had a similar problem and it has been resolved.
 
-This will save time repeating the same issues many times and solving the same problems. If you do not find anything and you still have a problem, then contact us.
-
-We will be grateful if you appreciate our time and try to find an answer that may already be somewhere. And if it's not here, please describe your problem to us.
-
-Please remember one thing - we work on it in our free time, with passion. We will be grateful for keeping culture and patience. We are not always able to respond immediately.
-
-We want to help everyone very much, but we need cooperation between both sides. This is very important. We may have a deal like this?
-
-And most importantly - **do not leave the thread unanswered**. If you add a thread, follow when you get a reply. Then let us know if we have helped you or not. This helps us improve technical support.
-
 When adding a thread, follow these steps and reply to each of them:
 
 **1.** Do you have any error on the plugin settings page? If so, which one? Have you consulted your server administrator or developer? If not, please do it first.
@@ -125,8 +115,6 @@ Send a screenshot from console if an error occurred while converting images. Of 
 
 Please remember to include the answers for all 11 questions by adding a thread. It is much easier and accelerate the solution of your problem.
 
-And if we would help and would like to thank us, you can [provide us a coffee](https://ko-fi.com/gbiorczyk/).
-
 = Error on plugin settings screen? =
 
 If you have an error on the plugin settings screen, first of all please read it carefully. They are displayed when there is a problem with the configuration of your server or website.
@@ -147,23 +135,23 @@ If you get an error: `File "%s" is unreadable. Please check file permissions.` m
 
 If you get an error: `"%s" is not a valid image file.` means that the file is damaged in some way. Download the file to disk, save it again using any graphics program and add again to the page. If the error applies to individual images then you can ignore it - just the original images will load, not WebP.
 
+If you get an error: `"%s" converted to WebP is larger than original and has been deleted.` means the original image weighed less than WebP. This happens when images have been compressed before. Disable the *"Automatic removal of WebP files larger than original"* option in plugin settings to force always using WebP.
+
 In the case of the above problems, **contacting the support forum will be useless**. Unfortunately, we are unable to help you if your files are damaged. You have to fix it yourself. If you have previously used other tools that changed the original files and damaged them, you will do nothing more.
 
 Remember that it happens that other plugins can cause problems with accessing files or the REST API. Please try to disable all other plugins and set the default theme to make sure that it is not one of them that causes these types of problems.
 
 = What are requirements of plugin? =
 
-Practically every hosting meets these requirements. You must use PHP at least 7.0 and have the `GD` or `Imagick` extension installed. **The extension must support `WebP format`.**
+Practically every hosting meets these requirements. You must use PHP at least 7.0 and have the `GD` or `Imagick` extension installed. **The extension must support `WebP format`.** If you have an error saying that the GD or Imagick library are not installed, but you have it installed then they are probably incorrectly configured and do not have WebP support.
 
 They are required native PHP extensions, used among others by WordPress to generate thumbnails. Your server must also have the modules `mod_mime`, `mod_rewrite` and `mod_expires` enabled.
 
 An example of the correct server configuration can be found [here](https://gbiorczyk.pl/webp-converter/serverinfo.png). Link to your current configuration can be found in the administration panel, on the management plugin page in the section **"We are waiting for your message"** *(or using the URL path: `/wp-admin/options-general.php?page=webpc_admin_page&action=server`)*.
 
-**Note the items marked in red.** If your server does not meet the technical requirements, please contact your server Administrator.
+**Note the items marked in red.** If the values marked in red do not appear in your case, it means that your server does not meet the technical requirements. Pay attention to the **WebP Support** value for the GD library and **WEBP in the list of supported extensions** for the Imagick library.
 
-Please do not add threads regarding server configuration in the support section. Surely the server Administrator will be able to do it best.
-
-He is the most competent to solve such problems. Due to the huge amount of possible server environments, we are not able to help you with its configuration.
+In a situation where your server does not meet the technical requirements, please contact your server Administrator. We are not able to help you. Please do not contact us about this matter, because this is a server configuration problem, not a plugin.
 
 Also REST API must be enabled and work without additional restrictions. If you have a problem with it, please contact the Developer who created your website. He should easily find the issue with the REST API not working.
 
@@ -175,7 +163,7 @@ Please remember that **Safari and Internet Explorer do not support the WebP form
 
 You can find more about WebP support by browsers [here](https://caniuse.com/#feat=webp).
 
-= Forced rewrites to WebP =
+= Damaged images on iOS or other browsers =
 
 The plugin uses rules in the .htaccess file to redirect from the original image to an image in WebP format. Verifies whether the WebP file exists and whether your browser supports the WebP format. It does this every time you try to load an image.
 
@@ -212,9 +200,13 @@ When you have installed plugin and converted all images, follow these steps:
 7. In addition, you can check weight of website before and after using plugin. The difference will be huge!
 8. More information: [here](https://gbiorczyk.pl/webp-converter/check-devtools.png)
 
-Please remember that URLs will remain unchanged. The difference will be only in the Type of file. This does not mean that the plugin does not work.
+Please remember that URLs will remain unchanged. When you open the image in a new tab or look at its URL, you'll see the original URL. When you try to save the image to disk *(e.g. by clicking Save as...)* the original image will be saved.
 
-If the file type is `WebP`, then everything is working properly. You can also turn off the plugin for a moment and check the weight of your website, then turn it on and test again. The difference should be visible.
+WebP is only used when loading a image on a website. This is done by the rules from the .htaccess file, on the server side, without the visible URL change to the image. Yes, it can be called magic :)
+
+That is why the plugin should be tested in Dev Tools. If the Type of file is `WebP`, then everything is working properly. You can also turn off the plugin for a moment and check the weight of your website, then turn it on and test again. The difference should be visible.
+
+The operation of the plugin for non-advanced users may sometimes be less understood, but everything is fine. Thanks to this, regardless of whether your browser supports WebP or not, everything works without problems.
 
 Only images from the `/uploads` directory are automatically converted. If you use other plugins that also save images in the `/uploads` directory then this may not work. Therefore, check the plugin settings and try converting all images again.
 
@@ -481,6 +473,22 @@ This is all very important to us and allows us to do even better things for you!
 2. Screenshot when regenerating images
 
 == Changelog ==
+
+= 1.4.0 (2020-08-13) =
+* `[Removed]` Filter `webpc_notice_url`
+* `[Changed]` Error messages for server requirements
+* `[Changed]` Loading CSS and JS files only on plugin settings page
+* `[Changed]` Minor changes for plugin settings page
+* `[Changed]` Validation of saved settings values for security
+* `[Added]` Blocking redirects to WebP when displaying images on other domains
+* `[Added]` Cron to automatically regenerate new images outside of Media Library
+* `[Added]` Filter `webpc_cron_interval` to change cron interval
+* `[Added]` Error message for incorrect plugin settings
+* `[Added]` Error when converting when WebP file is larger than original and has been deleted
+* `[Added]` Notice after plugin installation with description of first steps
+* `[Added]` Option to log errors while converting to debug.log file
+* `[Added]` Option to preserve metadata for WebP files *(available for Imagick library)*
+* `[Added]` Value of `ABSPATH` in `Server configuration` tab
 
 = 1.3.1 (2020-07-03) =
 * `[Fixed]` Text Domain for Internationalization

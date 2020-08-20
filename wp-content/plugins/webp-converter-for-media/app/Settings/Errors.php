@@ -4,7 +4,8 @@
 
   class Errors
   {
-    private $list = null;
+    private $cache    = null;
+    private $filePath = WEBPC_PATH . '/resources/components/errors/%s.php';
 
     public function __construct()
     {
@@ -17,20 +18,33 @@
 
     public function getServerErrors()
     {
-      if ($this->list !== null) return $this->list;
+      if ($this->cache !== null) return $this->cache;
 
-      $list = [
-        'path_uploads'     => ($this->ifUploadsPathExists() !== true),
-        'path_htaccess'    => ($this->ifHtaccessIsWriteable() !== true),
-        'path_webp'        => ($this->ifWebpPathExists() !== true),
-        'path_duplicated'  => ($this->ifPathsAreDifferent() !== true),
-        'rest_api'         => ($this->ifRestApiIsEnabled() !== true),
-        'methods'          => ($this->ifMethodsAreAvailable() !== true),
-        'bypassing_apache' => ($this->ifBypassingApacheIsActive() === true),
-      ];
+      $this->cache = $this->loadErrorMessages([
+        'path_uploads_unavailable'   => ($this->ifUploadsPathExists() !== true),
+        'path_htaccess_not_writable' => ($this->ifHtaccessIsWriteable() !== true),
+        'path_webp_not_writable'     => ($this->ifWebpPathIsWriteable() !== true),
+        'path_webp_duplicated'       => ($this->ifPathsAreDifferent() !== true),
+        'rest_api_disabled'          => ($this->ifRestApiIsEnabled() !== true),
+        'libs_not_installed'         => ($this->ifLibsAreInstalled() !== true),
+        'libs_without_webp_support'  => ($this->ifLibsSupportWebp() !== true),
+        'bypassing_apache'           => ($this->ifBypassingApacheIsActive() === true),
+        'settings_incorrect'         => ($this->ifSettingsAreCorrect() !== true),
+      ]);
+      return $this->cache;
+    }
 
-      $this->list = array_keys(array_filter($list));
-      return $this->list;
+    private function loadErrorMessages($errors)
+    {
+      $list = [];
+      foreach ($errors as $error => $status) {
+        if ($status !== true) continue;
+        ob_start();
+        include sprintf($this->filePath, str_replace('_', '-', $error));
+        $list[$error] = ob_get_contents();
+        ob_end_clean();
+      }
+      return $list;
     }
 
     private function ifUploadsPathExists()
@@ -47,7 +61,7 @@
       else return is_writable($pathDir);
     }
 
-    private function ifWebpPathExists()
+    private function ifWebpPathIsWriteable()
     {
       $path = apply_filters('webpc_uploads_webp', '');
       return (is_dir($path) || is_writable(dirname($path)));
@@ -67,11 +81,15 @@
         && (apply_filters('rest_authentication_errors', true) === true));
     }
 
-    private function ifMethodsAreAvailable()
+    private function ifLibsAreInstalled()
     {
-      $config  = apply_filters('webpc_get_values', []);
+      return (extension_loaded('gd') || (extension_loaded('imagick') && class_exists('\Imagick')));
+    }
+
+    private function ifLibsSupportWebp()
+    {
       $methods = apply_filters('webpc_get_methods', []);
-      return (isset($config['method']) && in_array($config['method'], $methods));
+      return (($this->ifLibsAreInstalled() !== true) || (count($methods) > 0));
     }
 
     private function ifBypassingApacheIsActive()
@@ -88,5 +106,16 @@
       if ($filePng2 === false) return false;
 
       return (strlen($filePng) < strlen($filePng2));
+    }
+
+    private function ifSettingsAreCorrect()
+    {
+      $settings = apply_filters('webpc_get_values', [], true);
+      if ((!isset($settings['extensions']) || !$settings['extensions'])
+        || (!isset($settings['dirs']) || !$settings['dirs'])
+        || (!isset($settings['method']) || !$settings['method'])
+        || (!isset($settings['quality']) || !$settings['quality'])) return false;
+
+      return true;
     }
   }

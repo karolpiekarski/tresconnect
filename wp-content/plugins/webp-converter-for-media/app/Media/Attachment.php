@@ -4,11 +4,10 @@
 
   class Attachment
   {
-    private $settings, $uploadDir, $imageSizes;
+    private $uploadDir, $imageSizes;
 
     public function __construct()
     {
-      $this->settings   = apply_filters('webpc_get_values', []);
       $this->uploadDir  = wp_upload_dir();
       $this->imageSizes = get_intermediate_image_sizes();
     }
@@ -19,11 +18,12 @@
 
     public function getAttachmentPaths($attachmentId)
     {
-      $paths = $this->getPathsByAttachment($attachmentId);
+      $settings = apply_filters('webpc_get_values', []);
+      $paths    = $this->getPathsByAttachment($attachmentId, $settings);
       return $paths;
     }
 
-    private function getPathsByAttachment($postId)
+    private function getPathsByAttachment($postId, $settings)
     {
       $list     = [];
       $metadata = wp_get_attachment_metadata($postId);
@@ -31,7 +31,7 @@
 
       $extension = strtolower(pathinfo($metadata['file'], PATHINFO_EXTENSION));
       if (!isset($metadata['file'])
-        || !in_array($extension, $this->settings['extensions'])) return $list;
+        || !in_array($extension, $settings['extensions'])) return $list;
 
       $paths = $this->getPathsBySizes($postId, $metadata['file']);
       $paths = apply_filters('webpc_attachment_paths', $paths, $postId);

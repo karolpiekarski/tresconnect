@@ -53,17 +53,6 @@
           'disabled' => $this->getDisabledValues('method'),
         ],
         [
-          'name'     => 'features',
-          'type'     => 'checkbox',
-          'label'    => __('Extra features', 'webp-converter-for-media'),
-          'info'     => __('The options allow you to enable new functionalities that will additionally speed up your website.', 'webp-converter-for-media'),
-          'values'   => [
-            'only_smaller' => __('Automatic removal of WebP files larger than original', 'webp-converter-for-media'),
-            'mod_expires'  => __('Browser Caching for WebP files (saving images in browser cache memory)', 'webp-converter-for-media'),
-          ],
-          'disabled' => $this->getDisabledValues('features'),
-        ],
-        [
           'name'   => 'quality',
           'type'   => 'quality',
           'label'  => __('Images quality', 'webp-converter-for-media'),
@@ -78,6 +67,21 @@
           ],
           'disabled' => $this->getDisabledValues('quality'),
         ],
+        [
+          'name'     => 'features',
+          'type'     => 'checkbox',
+          'label'    => __('Extra features', 'webp-converter-for-media'),
+          'info'     => __('Options allow you to enable new functionalities that will increase capabilities of plugin.', 'webp-converter-for-media'),
+          'values'   => [
+            'only_smaller'     => __('Automatic removal of WebP files larger than original', 'webp-converter-for-media'),
+            'mod_expires'      => __('Browser Caching for WebP files (saving images in browser cache memory)', 'webp-converter-for-media'),
+            'keep_metadata'    => __('Keep images metadata stored in EXIF or XMP formats (only available for Imagick conversion method)', 'webp-converter-for-media'),
+            'cron_enabled'     => __('Enable cron to automatically convert images from outside Media Library (images from Media Library are converted immediately after upload)', 'webp-converter-for-media'),
+            'referer_disabled' => __('Force redirections to WebP for all domains (by default, images in WebP are loaded only in domain of your website - when image is displayed via URL on another domain that original file is loaded)', 'webp-converter-for-media'),
+            'debug_enabled'    => __('Log errors while converting to debug.log file (when debugging in WordPress is active)', 'webp-converter-for-media'),
+          ],
+          'disabled' => $this->getDisabledValues('features'),
+        ],
       ];
     }
 
@@ -89,6 +93,10 @@
           $methods = apply_filters('webpc_get_methods', []);
           if (!in_array('gd', $methods)) $list[] = 'gd';
           if (!in_array('imagick', $methods)) $list[] = 'imagick';
+          break;
+        case 'features':
+          $settings = apply_filters('webpc_get_values', []);
+          if ($settings['method'] !== 'imagick') $list[] = 'keep_metadata';
           break;
       }
       return $list;

@@ -51,6 +51,7 @@ export default class Notice
     jQuery.ajax(this.settings.ajaxUrl, {
       type: 'POST',
       data: {
+        action: 'webpc_notice',
         is_permanently: isPermanently ? 1 : 0,
       },
     });

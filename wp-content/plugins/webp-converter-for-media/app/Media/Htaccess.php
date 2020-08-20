@@ -4,11 +4,13 @@
 
   class Htaccess
   {
+    const ACTION_NAME = 'webpc_rewrite_htaccess';
+
     public function __construct()
     {
-      add_action('webpc_rewrite_htaccess', [$this, 'addRewriteRulesToWpContent'],   10, 1);
-      add_action('webpc_rewrite_htaccess', [$this, 'addRewriteRulesToUploads'],     10, 1);
-      add_action('webpc_rewrite_htaccess', [$this, 'addRewriteRulesToUploadsWebp'], 10, 1);
+      add_action(self::ACTION_NAME, [$this, 'addRewriteRulesToWpContent'],   10, 1);
+      add_action(self::ACTION_NAME, [$this, 'addRewriteRulesToUploads'],     10, 1);
+      add_action(self::ACTION_NAME, [$this, 'addRewriteRulesToUploadsWebp'], 10, 1);
     }
 
     /* ---
@@ -20,9 +22,9 @@
       $path = dirname(apply_filters('webpc_uploads_path', ''));
       if (!$isActive) return $this->saveRewritesInHtaccesss($path);
 
-      $values = apply_filters('webpc_get_values', []);
-      $rows   = [
-        $this->getModRewriteRules($values),
+      $settings = apply_filters('webpc_get_values', []);
+      $rows     = [
+        $this->getModRewriteRules($settings),
       ];
 
       $content = $this->addCommentsToRules($rows);
@@ -35,9 +37,9 @@
       $path = apply_filters('webpc_uploads_path', '');
       if (!$isActive) return $this->saveRewritesInHtaccesss($path);
 
-      $values = apply_filters('webpc_get_values', []);
-      $rows   = [
-        $this->getModRewriteRules($values, apply_filters('webpc_uploads_dir', '')),
+      $settings = apply_filters('webpc_get_values', []);
+      $rows     = [
+        $this->getModRewriteRules($settings, apply_filters('webpc_uploads_dir', '')),
       ];
 
       $content = $this->addCommentsToRules($rows);
@@ -75,6 +77,9 @@
       foreach ($settings['extensions'] as $ext) {
         $content .= '  RewriteCond %{HTTP_ACCEPT} image/webp' . PHP_EOL;
         $content .= "  RewriteCond %{DOCUMENT_ROOT}${path}/$1.${ext}.webp -f" . PHP_EOL;
+        if (!in_array('referer_disabled', $settings['features'])) {
+          $content .= "  RewriteCond %{HTTP_HOST}@@%{HTTP_REFERER} ^([^@]*)@@https?://\\1/.*" . PHP_EOL;
+        }
         $content .= "  RewriteRule (.+)\.${ext}$ ${path}/$1.${ext}.webp [NC,T=image/webp,E=cache-control:private,L]" . PHP_EOL;
       }
       $content .= '</IfModule>';

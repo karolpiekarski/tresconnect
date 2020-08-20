@@ -1,5 +1,5 @@
 .webpPage {
-  margin: 0;
+  margin: 20px 0 0 0;
   padding: 0 20px 0 0;
   font-family: $f-main;
   color: $c-gray-07;
@@ -23,17 +23,6 @@
 
   *[hidden] {
     display: none !important;
-  }
-
-  /* ---
-    Headline
-  --- */
-
-  &__headline {
-    padding: 32px 0;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 1.25;
   }
 
   /* ---
@@ -208,7 +197,7 @@
 
   &__checkboxLabel {
     display: inline-block;
-    max-width: 600px;
+    max-width: 650px;
     font-size: 14px;
     line-height: 1.64;
   }

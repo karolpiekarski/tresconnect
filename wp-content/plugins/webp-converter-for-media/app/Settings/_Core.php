@@ -10,7 +10,6 @@
       new Methods();
       new Options();
       new Page();
-      new Paths();
       new Server();
       new Values();
     }

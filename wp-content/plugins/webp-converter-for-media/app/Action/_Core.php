@@ -7,8 +7,8 @@
     public function __construct()
     {
       new Convert();
+      new Cron();
       new Delete();
-      new Dir();
       new Regenerate();
     }
   }

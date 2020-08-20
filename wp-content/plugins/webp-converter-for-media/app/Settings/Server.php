@@ -114,6 +114,17 @@
           </tr>
         </tbody>
       </table>
+      <h4>WordPress</h4>
+      <table>
+        <tbody>
+          <tr>
+            <td class="e">ABSPATH</td>
+            <td class="v">
+              <?= ABSPATH; ?>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <?php
 
       $content = ob_get_contents();

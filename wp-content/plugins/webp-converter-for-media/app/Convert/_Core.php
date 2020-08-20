@@ -6,6 +6,8 @@
   {
     public function __construct()
     {
+      new Dir();
+      new Paths();
       new Size();
     }
   }

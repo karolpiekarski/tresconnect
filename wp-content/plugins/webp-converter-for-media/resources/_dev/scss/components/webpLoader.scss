@@ -107,6 +107,10 @@
     line-height: 1.64;
     color: $c-green-01;
     border-left: 2px solid $c-green-01;
+
+    a {
+      color: inherit;
+    }
   }
 
   /* ---

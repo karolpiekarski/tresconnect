@@ -4,7 +4,8 @@
 
   class Endpoints
   {
-    public $namespace = 'webp-converter/v1';
+    const ROUTE_NAMESPACE   = 'webp-converter/v1';
+    const PATHS_PER_REQUEST = 10;
 
     public function __construct()
     {
@@ -20,7 +21,7 @@
     public function restApiEndpoints()
     {
       register_rest_route(
-        $this->namespace,
+        self::ROUTE_NAMESPACE,
         'paths',
         [
           'methods'  => \WP_REST_Server::ALLMETHODS,
@@ -43,7 +44,7 @@
       );
 
       register_rest_route(
-        $this->namespace,
+        self::ROUTE_NAMESPACE,
         'regenerate',
         [
           'methods'  => \WP_REST_Server::ALLMETHODS,
@@ -71,7 +72,7 @@
       $params     = $request->get_params();
       $skipExists = (!$params['regenerate_force']) ? true : false;
 
-      $data = (new Paths())->getPaths($skipExists, 10);
+      $data = (new Paths())->getPaths($skipExists, self::PATHS_PER_REQUEST);
       if ($data !== false) return new \WP_REST_Response($data, 200);
       else return new \WP_Error('webpc_rest_api_error', null, ['status' => 405]);
     }
@@ -87,14 +88,14 @@
     public function showApiPathsUrl()
     {
       $nonce = wp_create_nonce('wp_rest');
-      $url   = get_rest_url(null, $this->namespace . '/paths?_wpnonce=' . $nonce);
+      $url   = get_rest_url(null, self::ROUTE_NAMESPACE . '/paths?_wpnonce=' . $nonce);
       return $url;
     }
 
     public function showApiRegenerateUrl()
     {
       $nonce = wp_create_nonce('wp_rest');
-      $url   = get_rest_url(null, $this->namespace . '/regenerate?_wpnonce=' . $nonce);
+      $url   = get_rest_url(null, self::ROUTE_NAMESPACE . '/regenerate?_wpnonce=' . $nonce);
       return $url;
     }
   }
