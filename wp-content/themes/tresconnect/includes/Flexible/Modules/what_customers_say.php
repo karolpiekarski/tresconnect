@@ -1,11 +1,11 @@
 <?php if ($section['active']) : ?>
-  <section class="whatCustomersSay container--fluid" style="background-image: url(<?=$section['bg_image']['sizes']['large']?>)">
+  <section class="whatCustomersSay container--fluid" style="background-image: url(<?=$section['bg_image']['sizes']['large']?>)" data-slider>
     <div class="whatCustomersSay__wrapper container">
       <div class="whatCustomersSay__title">
         <?=$section['text']?>
       </div>
       <div class="whatCustomersSay__iconsWrapper">
-        <div class="whatCustomersSay__icons">
+        <div class="whatCustomersSay__icons" data-slider-wrapper>
           <?php foreach ($section['icon_link'] as $item) : ?>
             <?php if (isset($item['link']['url']) && !empty($item['link']['url'])) : ?>
               <div class="whatCustomersSay__iconWrapper">
@@ -26,6 +26,10 @@
               </div>
             <?php endif ?>
           <?php endforeach; ?>
+        </div>
+        <div class="whatCustomersSay__arrows" data-slider-navs>
+          <button class="whatCustomersSay__arrow whatCustomersSay__arrow--prev" data-slider-nav-prev> < </span></button>
+          <button class="whatCustomersSay__arrow whatCustomersSay__arrow--next" data-slider-nav-next> < </button>
         </div>
       </div>
 
